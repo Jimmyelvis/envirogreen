@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+
 use App\Http\Requests;
 
-class AdminUsersController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,6 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
-
-        $users = User::all();
-
-        return view('admin/users.index', compact('users'));
     }
 
     /**
@@ -30,7 +26,6 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        return view('admin/users.create');
     }
 
     /**
@@ -42,7 +37,6 @@ class AdminUsersController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->all();
     }
 
     /**

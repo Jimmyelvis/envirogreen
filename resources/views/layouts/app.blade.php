@@ -13,64 +13,87 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+      <link href="css/styles.css" rel="stylesheet">
+      <link href="{{ URL::to('css/styles.css') }}" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Lato';
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
     </style>
+
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
-            </div>
+      <div class="topnav">
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
+    	<ul class="top-nav-list">
+    		<li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Portland, ORE</li>
+    		<li><i class="fas fa-phone-square"></i>   1-800-669-8869</li>
+    		<li><i class="fas fa-envelope-square"></i> mail@envirogreen.com</li>
+    	</ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+    </div>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+
+    <nav class="navbar navbar-default">
+
+
+
+       <div class="container">
+
+         	<a class="navbar-brand" href="#"><img src="images/hder-logo.png" alt=""></a>
+
+    		<span class="open-slide pull-right">
+
+    			<a href="#" onclick="openSlideMenu()">
+
+    				<svg width="40" height="40">
+    					<path d="M0,5 30,5" stroke="#1cc198" stroke-width="5"/>
+    					<path d="M0,14 30,14" stroke="#1cc198" stroke-width="5"/>
+    					<path d="M0,23 30,23" stroke="#1cc198" stroke-width="5"/>
+    				</svg>
+
+    			</a>
+
+    		</span>
+
+    			<ul class="navbar-navig pull-right">
+    				<li><a href="index.html" class="active">Home</a></li>
+    				<li class="d-down">
+    				  <a href="#" class="ddown-btn">About Us</a>
+    				  	<div class="dwn-menu">
+    					  <a href="agents.html">Our Agents</a>
+    					  <a href="about.html">Background</a>
+    					</div>
+    				</li>
+    				<li><a href="listings-v2.html">Listing</a></li>
+    				<li><a href="#">Blog</a></li>
+    				<li><a href="#">Contact</a></li>
+            <li><a href="#" class="login">Login</a></li>
+            <li><a href="#" class="register">Register</a></li>
+    			</ul>
+    		</div>
+
+
+      </nav>
+
+      <div id="side-menu" class="side-nav">
+             <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+            <li><a href="#">Home</a></li>
+        	<li class="d-side-down">
+        	  <a href="#" class="ddown-side-btn">About Us</a>
+        		<div class="dwn-side-menu">
+        		  <a href="#">Our Agents</a>
+        		  <a href="#">Background</a>
+        		</div>
+        	</li>
+        	<li><a href="#">Listings</a></li>
+        	<li><a href="#">Blog</a></li>
+        	<li><a href="#">Contact</a></li>
+          <li><a href="#" class="login">Login</a></li>
+            <li><a href="#" class="register">Register</a></li>
+      </div>
 
     @yield('content')
 

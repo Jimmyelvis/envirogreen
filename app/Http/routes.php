@@ -11,17 +11,33 @@
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Front End Routes
+*/
+
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/listings', 'ListingController@index');
+Route::get('/listings/{id}', ['as'=>'listing.detail', 'uses'=>'ListingController@show']);
+
+
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('users', 'AdminUsersController');
-Route::resource('users/create', 'AdminUsersController@create');
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+*/
 
-// Route::get('/users/create/', function () {
-//     return view('home');
-// });
+Route::get('/admin', function () {
+
+    return view('admin.index');
+});
+
+Route::resource('admin/users', 'AdminUsersController');
+Route::resource('admin/users/create', 'AdminUsersController@create');

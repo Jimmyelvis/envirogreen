@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Listing;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\User;
+
 use App\Http\Requests;
 
-class AdminUsersController extends Controller
+class ListingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,9 @@ class AdminUsersController extends Controller
     {
         //
 
-        $users = User::all();
+        $listings = Listing::all();
 
-        return view('admin/users.index', compact('users'));
+        return view('front-end/listing', compact('listings'));
     }
 
     /**
@@ -30,7 +32,7 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        return view('admin/users.create');
+        return('create yep');
     }
 
     /**
@@ -42,7 +44,6 @@ class AdminUsersController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->all();
     }
 
     /**
@@ -54,6 +55,9 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         //
+        $listing = Listing::findOrFail($id);
+
+        return view('front-end/listing-detail', compact('listing'));
     }
 
     /**
@@ -89,4 +93,7 @@ class AdminUsersController extends Controller
     {
         //
     }
+
+
+
 }
