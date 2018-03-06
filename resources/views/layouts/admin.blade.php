@@ -37,7 +37,7 @@
             <ul>
 
                 <li class="d-side-down">
-                    <a href="#" class="active">Dashboard Home</a>
+                    <a href="/admin" class="active">Dashboard Home</a>
                 </li>
 
                 <li class="d-side-down">
@@ -45,8 +45,8 @@
                        <span class="navarrow ">&#9662;</span>
                     </a>
                     <div class="dwn-side-menu">
-                        <a href="admin-staff.html">All Staff</a>
-                        <a href="#">Create Staff</a>
+                        <a href="{{route('admin.users.index')}}">All Staff</a>
+                        <a href="{{route('admin.users.create')}}">Create Staff</a>
                     </div>
                 </li>
 
