@@ -55,8 +55,8 @@
                        <span class="navarrow">&#9662;</span>
                     </a>
                     <div class="dwn-side-menu">
-                        <a href="#">All Listings</a>
-                        <a href="#">Create Listing</a>
+                        <a href="{{route('admin.listings.index')}}">All Listings</a>
+                        <a href="{{route('admin.listings.create')}}">Create Listing</a>
                     </div>
                 </li>
 
@@ -93,13 +93,13 @@
 
             <div class="col-md-5 login-pic-holder">
 
-                <img class="login-pic img-circle" src="{{asset('images/people/46465456446.jpg')}}" alt="">
+                <img class="login-pic img-circle" src="{{auth()->user()->photo->file}}" alt="">
             </div>
 
             <div class="col-md-7">
-                <h3>James Blues</h3>
-                <h4>Real Estate Agent</h4>
-                <h5 class="pull-right">Logout &nbsp <span class="logout"><i class="fas fa-sign-out-alt"></i></span></h5>
+                <h3>{{ auth()->user()->name }}</h3>
+                <h4>{{ auth()->user()->position->name }}</h4>
+                <h5 class="pull-right"><a href="{{ url('/logout')  }}">Logout &nbsp</a><span class="logout"><i class="fas fa-sign-out-alt"></i></span></h5>
             </div>
 
         </div>

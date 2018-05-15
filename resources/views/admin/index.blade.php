@@ -18,12 +18,12 @@
                         <a href=""></a>
                         <div class="category col-md-3">
                             <img class="staff-img-cat" src="{{asset('images/staff.png')}}" alt="">
-                            <h4><a href="admin-staff.html">STAFF</a></h4>
+                            <h4><a href="{{route('admin.users.index')}}">STAFF</a></h4>
                         </div>
 
                         <div class="category col-md-3">
                             <img class="listing-img-cat" src="{{asset('images/house.png')}}" alt="">
-                            <h4><a href="">LISTING</a></h4>
+                            <h4><a href="{{route('admin.listings.index')}}">LISTING</a></h4>
                         </div>
 
 

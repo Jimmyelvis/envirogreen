@@ -41,7 +41,20 @@
 
 				<div class="col-md-8 col-sm-8 col-xs-8">
 
-					<img src="{{$listing->photo ? $listing->photo->file : 'http://placehold.it/400x400' }}" class="list-full-pic  img-responsive" alt="">
+					<img src="{{$listing->fullpic? URL::to($listing->fullpic->file) : 'http://placehold.it/400x400'}}" class="list-full-pic  img-responsive" alt="">
+
+					<div class="col-md-10 col-xs-12">
+
+							<ul class="listing-thumbnails">
+									<li><a href=""><img src="{{$listing->extrapicone? URL::to($listing->extrapicone->file) : 'http://placehold.it/400x400'}}" alt=""></a></li>
+									<li><a href=""><img src="{{$listing->extrapictwo? URL::to($listing->extrapictwo->file) : 'http://placehold.it/400x400'}}" alt=""></a></li>
+									<li><a href=""><img src="{{$listing->extrapicthree? URL::to($listing->extrapicthree->file) : 'http://placehold.it/400x400'}}" alt=""></a></li>
+									<li><a href=""><img src="{{$listing->extrapicfour? URL::to($listing->extrapicfour->file) : 'http://placehold.it/400x400'}}" alt=""></a></li>
+							</ul>
+
+						 <div class="clearfix"></div>
+
+					</div>
 
 				</div>
 
@@ -49,16 +62,16 @@
 
                     <div class="row">
                         <h2>{{$listing->street}}</h2>
-					              <h4>{{$listing->city}},{{$listing->state}}</h4>
+												<h4>{{$listing->city}},{{$listing->state ? $listing->state->name : 'Listing has no state'}}</h4>
 
                     </div>
 
                     <div class="row">
-                        <h3><span class="listing-agent">Listing Agent:</span> Jake Carter</h3>
+                        <h3><span class="listing-agent">Listing Agent:</span>  {{$listing->user->name}}</h3>
                     </div>
 
                     <div class="row">
-                        <img src="{{$listing->photo ? $listing->photo->file : 'http://placehold.it/400x400' }}" alt="" class="list-agent-pic">
+                        <img src="{{$listing->user->photo->file? URL::to($listing->user->photo->file) : 'http://placehold.it/400x400'}}" alt="" class="list-agent-pic">
                     </div>
 
                     <div class="row">
@@ -89,18 +102,7 @@
 
 		    <div class="row">
 
-                <div class="col-md-6 col-xs-12">
 
-                    <ul class="listing-thumbnails">
-                        <li><a href=""><img src="images/houses/pexels-photo-276554.jpeg" alt=""></a></li>
-                        <li><a href=""><img src="images/houses/pexels-photo-276625.jpeg" alt=""></a></li>
-                        <li><a href=""><img src="images/houses/pexels-photo-271722.jpeg" alt=""></a></li>
-                        <li><a href=""><img src="images/houses/pexels-photo-342800.jpeg" alt=""></a></li>
-                    </ul>
-
-                   <div class="clearfix"></div>
-
-                </div>
 
 
 
@@ -116,7 +118,7 @@
 
             </div>
 
-            <div class="col-md-12 features">
+            <!-- <div class="col-md-12 features">
 
                <h3>Features</h3>
 
@@ -136,7 +138,7 @@
 
                 <div class="clearfix"></div>
 
-            </div>
+            </div> -->
 
 
 

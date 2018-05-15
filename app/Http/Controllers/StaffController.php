@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\User;
 
 class StaffController extends Controller
 {
@@ -16,6 +17,8 @@ class StaffController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+        return view('front-end/staff', compact('users'));
     }
 
     /**

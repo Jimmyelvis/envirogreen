@@ -115,7 +115,7 @@
 		</span>
 
       <ul class="navbar-navig pull-right">
-           <li><a href="#" class="active">Home</a></li>
+           <li><a href="/" class="active">Home</a></li>
            <li class="d-down">
                <a href="#" class="ddown-btn">About Us</a>
                <div class="dwn-menu">
@@ -123,7 +123,7 @@
                    <a href="about.html">Background</a>
                </div>
            </li>
-           <li><a href="listings-v2.html">Listings</a></li>
+           <li><a href="/listings">Listings</a></li>
            <li><a href="#">Blog</a></li>
            <li><a href="#">Contact</a></li>
            <li><a href="#" class="login">Login</a></li>

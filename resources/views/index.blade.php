@@ -12,13 +12,16 @@
 
             <div id="home-search">
 
-                <div class="form-wrapper">
+                <form action="/search" method="GET" role="search">
+             			{{ csrf_field() }}
 
-                    <input type="text" class="search-query" placeholder="Your City, USA">
+                    <div class="form-wrapper">
+                     		<input type="text" class="search-query" name="q"	placeholder="Search citys" autocomplete="off">
+                    </div>
 
-                </div>
+                    <button type="submit" class="btn btn-success">SEARCH</button>
 
-                <button type="submit" class="btn btn-success">SEARCH</button>
+               </form>
 
             </div>
 

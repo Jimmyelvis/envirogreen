@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'skype', 'phone', 'role_id', 'position_id', 'photo_id',
+        'name', 'email', 'password', 'skype', 'phone', 'role_id', 'position_id', 'photo_id','',
     ];
 
     /**
@@ -33,7 +33,18 @@ class User extends Authenticatable
   }
 
     public function photo(){
-      return $this->belongsTo('App\Photo');
+      return $this->belongsTo('App\PhotoStaff');
+  }
+
+  public function isAdmin(){
+
+      if($this->role->name  == "web-admin" || "data-entry"){
+
+          return true;
+      }
+
+      return false;
+
   }
 
 }
