@@ -39,7 +39,8 @@
 
 				<div class="col-md-6">
 
-					<img src="images/people/asdfasdf.jpg" class="picmember img-thumbnail img-responsive" alt="">
+
+          <img src="{{$user->photo? URL::to($user->photo->file) : 'http://placehold.it/400x400'}}" class="list-full-pic  img-responsive" alt="">
 
 
 
@@ -47,12 +48,10 @@
 
 				<div class="col-md-6">
 
-					<h3>Sam Kerrigan</h3>
-					<h4>Co-Founder</h4>
+					<h3>{{$user->name}}</h3>
+          <h4>{{$user->position ? $user->position->name : 'User has no position'}}</h4>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ab, accusantium. Veritatis tenetur expedita laboriosam fugit exercitationem, a nesciunt quidem, nulla repellendus doloribus mollitia hic sequi dolor! Aperiam ad nostrum, vel quibusdam, ratione accusantium officiis laborum eum a, molestiae minima nobis dolorum unde dolores, ab. Ullam molestiae iste aliquam veritatis nulla et provident praesentium, voluptates quidem, quod, natus, id deserunt facere eaque. Odit, aliquam culpa excepturi explicabo sed molestias maiores veritatis laborum, facilis beatae corporis vitae eveniet corrupti, delectus cupiditate non illo. Veritatis soluta ab provident nisi quia odit, recusandae tenetur. Sapiente quibusdam magnam pariatur ex id temporibus sequi tempora  </p>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur quis voluptatem deserunt officia ullam! Similique distinctio totam quibusdam quae repellendus. Repellat sapiente totam illum? Molestias sunt quidem dolorem ab eaque voluptatem, doloremque veniam harum earum culpa labore modi quas doloribus necessitatibus eveniet deserunt quaerat accusantium neque aliquid delectus laborum sequi rerum rem aut! Quibusdam iste illo velit nostrum dolorum ut laboriosam, id repellat impedit.</p>
+					<p>{{$user->bio}}</p>
 
 					<div class="staff-info col-md-4">
 
@@ -67,9 +66,9 @@
 					<div class="staff-info col-md-4">
 
 						<ul class="info">
-							<li>samker@envirogreen.com</li>
-							<li>Samker</li>
-							<li>555-5555</li>
+							<li>{{$user->email}}</li>
+							<li>{{$user->skype}}</li>
+							<li>{{$user->phone}}</li>
 						</ul>
 
 					</div>

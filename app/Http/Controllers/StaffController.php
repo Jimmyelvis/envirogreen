@@ -18,7 +18,7 @@ class StaffController extends Controller
     {
         //
         $users = User::all();
-        return view('front-end/staff', compact('users'));
+        return view('front-end.staff', compact('users'));
     }
 
     /**
@@ -51,6 +51,9 @@ class StaffController extends Controller
     public function show($id)
     {
         //
+        $user = User::findOrFail($id);
+
+        return view('front-end/staff-detail', compact('user'));
     }
 
     /**

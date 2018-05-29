@@ -17,10 +17,13 @@
 
     <link href="css/styles.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
 
   <style>
     .navbar {
@@ -35,8 +38,8 @@
     .jumbotron {
       background-image: url(images/full-house-pic-3.jpg);
       margin-top: -135px;
-      padding-top: 200px;
-      padding-bottom: 10%;
+      padding-top: 153px;
+      padding-bottom: 13%;
       background-size: cover;
     }
 
@@ -45,9 +48,18 @@
       text-shadow: 1px 1px 1px #000000;
     }
 
+    .jumbotron h1{
+      color: #272727;
+      font-size: 53px;
+    }
+
     .jumbotron h3 {
       color: rgba(255, 255, 255, 1.00);
       font-size: 28px;
+    }
+
+    .ui-helper-hidden-accessible {
+        display: none;
     }
 
     @media (max-width: 1100px) {
@@ -72,8 +84,25 @@
         font-size: 140%;
       }
 
+    }
+
+    @media (max-width: 500px) {
+
+      .jumbotron h1 {
+        font-size: 200%;
+        text-align: center;
+      }
+
+      .jumbotron h3 {
+        font-size: 140%;
+        width: 90%;
+        margin: 20px auto 0 auto;
+        text-align: center;
+      }
 
     }
+
+
   </style>
 
 
@@ -85,7 +114,7 @@
   <div class="topnav">
 
     <ul class="top-nav-list">
-      <li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Portland, ORE</li>
+      <li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Springfield, MA</li>
       <li><i class="fas fa-phone-square"></i> 1-800-669-8869</li>
       <li><i class="fas fa-envelope-square"></i> mail@envirogreen.com</li>
     </ul>
@@ -98,7 +127,7 @@
 
     <div class="container">
 
-      <a class="navbar-brand" href="#"><img src="images/hder-logo.png" alt=""></a>
+      <a class="navbar-brand" href="/"><img src="{{ asset('images/hder-logo.png') }}" alt=""></a>
 
       <span class="open-slide pull-right">
 
@@ -119,15 +148,14 @@
            <li class="d-down">
                <a href="#" class="ddown-btn">About Us</a>
                <div class="dwn-menu">
-                   <a href="agents.html">Our Agents</a>
-                   <a href="about.html">Background</a>
+                   <a href="/staff">Our Agents</a>
+                   <a href="/about">Background</a>
                </div>
            </li>
            <li><a href="/listings">Listings</a></li>
-           <li><a href="#">Blog</a></li>
            <li><a href="#">Contact</a></li>
-           <li><a href="#" class="login">Login</a></li>
-           <li><a href="#" class="register">Register</a></li>
+           <!-- <li><a href="#" class="login">Login</a></li>
+           <li><a href="#" class="register">Register</a></li> -->
        </ul>
 
     </div>
@@ -137,19 +165,16 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <li><a href="#">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li class="d-side-down">
       <a href="#" class="ddown-side-btn">About Us</a>
       <div class="dwn-side-menu">
-        <a href="#">Our Agents</a>
-        <a href="#">Background</a>
+        <a href="/staff">Our Agents</a>
+        <a href="/about">Background</a>
       </div>
     </li>
-    <li><a href="#">Listings</a></li>
-    <li><a href="#">Blog</a></li>
+    <li><a href="/listings">Listings</a></li>
     <li><a href="#">Contact</a></li>
-    <li><a href="#" class="login">Login</a></li>
-    <li><a href="#" class="register">Register</a></li>
   </div>
 
 
@@ -167,7 +192,7 @@
 
   			<div class="row">
 
-  					<img class="btm-ftr" src="images/ftr_logo.png " alt="">
+  					<img class="btm-ftr" src="{{ asset('images/ftr_logo.png') }}" alt="">
 
   			</div>
 

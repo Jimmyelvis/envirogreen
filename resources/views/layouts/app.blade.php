@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Welcome To Envirogreen Reality</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -27,7 +27,7 @@
       <div class="topnav">
 
     	<ul class="top-nav-list">
-    		<li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Portland, ORE</li>
+    		<li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Springfield, MA</li>
     		<li><i class="fas fa-phone-square"></i>   1-800-669-8869</li>
     		<li><i class="fas fa-envelope-square"></i> mail@envirogreen.com</li>
     	</ul>
@@ -42,7 +42,7 @@
 
        <div class="container">
 
-         	<a class="navbar-brand" href="#"><img src="images/hder-logo.png" alt=""></a>
+         	<a class="navbar-brand" href="/"><img src="{{ asset('images/hder-logo.png') }}" alt=""></a>
 
     		<span class="open-slide pull-right">
 
@@ -63,15 +63,14 @@
     				<li class="d-down">
     				  <a href="#" class="ddown-btn">About Us</a>
     				  	<div class="dwn-menu">
-    					  <a href="agents.html">Our Agents</a>
-    					  <a href="about.html">Background</a>
+    					  <a href="/staff">Our Agents</a>
+    					  <a href="/about">Background</a>
     					</div>
     				</li>
     				<li><a href="/listings">Listing</a></li>
-    				<li><a href="#">Blog</a></li>
     				<li><a href="#">Contact</a></li>
-            <li><a href="#" class="login">Login</a></li>
-            <li><a href="#" class="register">Register</a></li>
+            <!-- <li><a href="#" class="login">Login</a></li>
+            <li><a href="#" class="register">Register</a></li> -->
     			</ul>
     		</div>
 
@@ -79,20 +78,17 @@
       </nav>
 
       <div id="side-menu" class="side-nav">
-             <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-            <li><a href="#">Home</a></li>
-        	<li class="d-side-down">
-        	  <a href="#" class="ddown-side-btn">About Us</a>
-        		<div class="dwn-side-menu">
-        		  <a href="#">Our Agents</a>
-        		  <a href="#">Background</a>
-        		</div>
-        	</li>
-        	<li><a href="#">Listings</a></li>
-        	<li><a href="#">Blog</a></li>
-        	<li><a href="#">Contact</a></li>
-          <li><a href="#" class="login">Login</a></li>
-            <li><a href="#" class="register">Register</a></li>
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <li><a href="/">Home</a></li>
+        <li class="d-side-down">
+          <a href="#" class="ddown-side-btn">About Us</a>
+          <div class="dwn-side-menu">
+            <a href="/staff">Our Agents</a>
+            <a href="#">Background</a>
+          </div>
+        </li>
+        <li><a href="/listings">Listings</a></li>
+        <li><a href="#">Contact</a></li>
       </div>
 
     @yield('content')
@@ -113,7 +109,7 @@
 
                 <div class="row">
 
-                    <img class="btm-ftr" src="images/ftr_logo.png " alt="">
+                    <img class="btm-ftr" src="{{ asset('images/ftr_logo.png') }} " alt="">
 
                 </div>
 
@@ -150,6 +146,8 @@
         </div>
 
     </footer>
+
+    <script src="js/slide-menu.js"></script>
 
 
 </body>

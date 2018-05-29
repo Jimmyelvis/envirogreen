@@ -1,0 +1,74 @@
+
+Looking for  ideas on how to write a multisearch query in a more effcient manner using Laravel 5.2
+
+
+
+My machine: Win 10 - Xamp - Laravel 5.2
+
+I'm somewhat decent at Laravel. What I am trying to do is, have the option values in a select list be the actual items in my database column. For example in my case what I have is a very simple Real Estate site, where a user can search for listings using select boxes, to narrow down what they're looking for, for example, listings in Springfield.
+
+[img]https://i.imgur.com/TPsSh3x.jpg[/img]
+
+I need to have the option values to be the actual cities in the database, however the option values right now are the array positions not the actual cities. 
+
+I have a <h3>City</h3> model, and a city table (ID, name). And I'm using laravelcollective in my view.
+
+[img]https://i.imgur.com/W5GZCiH.jpg[/img]
+
+Here's some the code I tried coming up with so far:
+
+My <h3>City</h3> model:
+
+```php
+
+class City extends Model
+{
+    //
+    protected $fillable = ['name'];
+
+}
+
+```
+
+I have a <h3>Listings</h3>  controller which simply displays all the listings, and uses the <h3>City</h3> model to genarate the dropdown list.
+
+```php
+
+public function index()
+    {
+        //
+
+        $listings = Listing::all();
+
+          $cities = City::all()->pluck('name');
+
+        return view('front-end.listing', compact('listings' , 'cities'));
+
+    }
+
+
+```
+
+I did some googling to try to find some ideas, and the best I was able to find was to use a foreach loop in my view 
+
+```php
+
+     @foreach($cities as $city)
+           {!! Form::select('city', $city, null, ['placeholder'=>'City', 'class'=>'form-control listings-drop', 
+           'name'=> 'loc']) !!}
+     @endforeach
+
+```
+
+Unfortunately, this is the error I got 
+
+```
+
+ErrorException in FormBuilder.php line 558:
+Invalid argument supplied for foreach() 
+
+```
+
+I'm assuming because the solution was related to Laravel 4.2, and I'm using 5.2. Any Ideas on how I can solve this, or am I even using the right approach?
+
+

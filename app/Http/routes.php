@@ -23,11 +23,22 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('/listings', 'ListingController@index');
+Route::get('/listings', 'ListingController@index');
 
-Route::get('/listings/{id}', ['as'=>'listing.detail', 'uses'=>'ListingController@show']);
+Route::get('/listings/{id}', ['as'=>'listings.detail', 'uses'=>'ListingController@show']);
 Route::get('/listingsresults', 'ListingController@listingsresults');
 Route::get('/staff', 'StaffController@index');
+Route::get('/staff/{id}', ['as'=>'staff.detail', 'uses'=>'StaffController@show']);
+
+Route::get('/about', function () {
+    return view('front-end.about');
+});
+
+Route::get('/contact', function () {
+    return view('front-end.contact');
+});
+
+
 
 Route::auth();
 
@@ -35,8 +46,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/search', 'ListingController@listingsresults');
 Route::get('/multisearch', 'ListingController@multiresults');
+Route::get('/autocomplete', array('as' =>'autocomplete', 'uses' => 'ListingController@autocomplete'));
 
-// Route::get('/multisearch', 'ListingsController@multiresults');
 
 
 /*
@@ -53,6 +64,8 @@ Route::group(['middleware'=>'admin'], function(){
 
   Route::resource('admin/users', 'AdminUsersController');
   Route::resource('admin/listings', 'AdminListingsController');
+  Route::resource('admin/cities', 'AdminCityController');
+  Route::resource('admin/states', 'AdminStateController');
 
 });
 

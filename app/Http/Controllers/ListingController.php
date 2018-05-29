@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Listing;
 use App\User;
+use App\City;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -22,14 +23,12 @@ class ListingController extends Controller
         //
 
 
-        $listings = Listing::all();
+        $listings = Listing::paginate(9);
 
-        // $cities = Listing::lists('city')->all();
-        $cities = Listing::all()->pluck('city');
+          $cities = City::all()->pluck('name' , 'id');
 
 
         return view('front-end.listing', compact('listings' , 'cities'));
-        // return view('front-end.listing', compact('listings'));
     }
 
     /**
@@ -107,85 +106,112 @@ class ListingController extends Controller
 
 
     public function listingsresults()
-    {
+      {
 
-      $q = Input::get ( 'q' );
-      $listing = Listing::where ( 'city', 'LIKE', '%' . $q . '%' )
-                        ->orwhere( 'street', 'LIKE', '%' . $q . '%' )
-                        ->paginate(3);
+        $cities = City::all()->pluck('name' , 'id');
 
-      if (count ( $listing ) > 0)
-        return view ( 'front-end/listingsresults' )->withDetails ( $listing )->withQuery ( $q );
-      else
-        return view ( 'front-end/listingsresults' )->withMessage ( 'No Details found. Try to search again !' );
+        $pageinate = 9;
 
-      // $listings = Listing::all();
-      // return view('front-end/listingsresults', compact('listings'));
+        $q = Input::get ( 'q' );
+        $listing = Listing::join('cities', 'listings.city_id', '=', 'cities.id')
+                         ->select('cities.id','listings.*', 'cities.name')
+                         ->where ( 'name', 'LIKE', '%' . $q . '%' )
+                         ->paginate($pageinate);
 
-    }
+        if (count ( $listing ) > 0)
+          return view ( 'front-end/listingsresults', compact('cities'))->withDetails ( $listing )->withQuery ( $q );
+        else
+          return view ( 'front-end/listingsresults', compact('cities'))->withMessage ( 'No Details found. Try to search again !' );
+
+
+      }
 
     public function multiresults()
     {
 
-        // $loc = Input::get ( 'loc' );
-        // $min = Input::get ( 'min' );
-        // $max = Input::get ( 'max' );
+        $pageinate = 9;
 
-
+        $cities = City::all()->pluck('name' , 'id');
 
         $loc = Input::has('loc') ?  Input::get('loc') : null;
         $min = Input::has('min') ? Input::get('min') : $min = null;
         $max = Input::has('max') ? Input::get('max') : $max = null;
-        $cat = Input::has('cat') ? Input::get('cat') : $cat = null;
+        $beds = Input::has('beds') ? Input::get('beds') : $beds = null;
+        $baths = Input::has('baths') ? Input::get('baths') : $baths = null;
 
-        // echo $loc . " " . $min . "  " . $max . " " . $cat;
-        echo $loc. " " . "<br>";
+        echo "CITY   " .  $loc .  "<br>" . "MIN PRICE " .  $min . "<br>" . "MAX PRICE " .  $max  .  "<br>" . "MIN beds "  . $beds .  "<br>" . "MIN baths " .  $baths .  "<br>";
 
 
-        if(isset($min) && isset($max) && isset($loc) && isset($cat)){
+        //CONDITIONS
 
-          echo "  first";
-
+        if(isset($min) && isset($max) && isset($loc) && isset($beds) && isset($baths) ){
+          echo "  ALL OPTIONS SET";
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )
-                          ->where('category_id', 'LIKE', '%' . $cat . '%' )
-                          ->where( 'city', 'LIKE', '%' . $loc . '%' )->paginate(3);
-
-        }else if(isset($min) && isset($max) ){
-
-          echo "  second";
-
+                          ->where('beds', '>=',  $beds )
+                          ->where('baths', '>=',  $baths )
+                          ->where ( 'city_id', '=',  $loc )->paginate($pageinate);
+        }
+        else if(isset($min) && isset($max) && isset($loc) ){
+          echo "  MIN/MAX PRICE & CITY SET";
           $listing = Listing::where ( 'price', '>=',  $min )
-                          ->where('price', '<=',  $max )->paginate(3);
-
-        }else if(isset($loc) && isset($cat) ){
-
-          echo "  third";
-
-          $listing = Listing::where ('category_id', 'LIKE', '%' . $cat . '%' )
-                          ->where( 'city', 'LIKE', '%' . $loc . '%' )->paginate(3);
-
-        }else if(isset($loc)){
-
-          echo "  four";
-
-          $listing = Listing::where( 'city', 'LIKE', '%' . $loc . '%' )->paginate(3);
-
-        }else if(isset($cat)){
-
-          echo "  four";
-
-          $listing = Listing::where ('category_id', 'LIKE', '%' . $cat . '%' )->paginate(3);
-
+                          ->where('price', '<=',  $max )->paginate($pageinate);
+        }
+        else if(isset($min) && isset($max) ){
+          echo "  MIN/MAX PRICE SET";
+          $listing = Listing::where ( 'price', '>=',  $min )
+                          ->where('price', '<=',  $max )->paginate($pageinate);
+        }
+        else if(isset($min) && isset($max) && isset($beds)){
+          echo "  MIN/MAX PRICE MIN BEDS SET";
+          $listing = Listing::where ( 'price', '>=',  $min )
+                          ->where('price', '<=',  $max )
+                          ->where('beds', '>=',  $beds )->paginate($pageinate);
+        }
+        else if(isset($min) && isset($max) && isset($baths)){
+          echo "  MIN/MAX PRICE MIN BATHS SET";
+          $listing = Listing::where ( 'price', '>=',  $min )
+                          ->where('price', '<=',  $max )
+                          ->where('baths', '>=',  $baths )->paginate($pageinate);
+        }
+        else if(isset($beds)){
+          echo "  MIN BEDS SET";
+          $listing = Listing::where('beds', '>=',  $beds )->paginate($pageinate);
+        }
+        else if(isset($baths)){
+          echo "  MIN BATHS SET";
+          $listing = Listing::where('baths', '>=',  $baths )->paginate($pageinate);
+        }
+        else if(isset($loc)){
+          echo "  CITY SET";
+          $listing = Listing::where ( 'city_id', '=',  $loc )->paginate($pageinate);
         }
 
 
+
+
         if (count ( $listing ) > 0)
-          return view ( 'front-end/multiresults', compact('cities'))->withDetails ( $listing )->withQuery ( $min, $max, $loc );
+          return view ( 'front-end/multiresults', compact('cities'))->withDetails ( $listing )->withQuery ( $min, $max, $loc, $beds, $baths );
         else
-          return view ( 'front-end/multiresults' )->withMessage ( 'No Details found. Try to search again !' );
+          return view ( 'front-end/multiresults', compact('cities'))->withMessage ( 'No Details found. Try to search again !' );
 
     }
+
+
+  public function autocomplete(Request $request)
+    {
+      $term = $request->term; //jquery
+      $data = City::where('name', 'LIKE', '%' .$term. '%')
+      ->take(10)
+      ->get();
+      $result = array();
+
+      foreach ($data as $key => $value) {
+        $result[] = ['id'=>$value->id,'value'=>$value->name];
+      }
+
+      return response()->json($result);
+  }
 
 
 

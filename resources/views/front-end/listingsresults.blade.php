@@ -39,54 +39,64 @@
 
         <div class="container">
 
-            <select class="form-control listings-drop">
-           <option class="listing-option" value="one">FOR SALE</option>
-           <option value="two">FOR RENT</option>
+          <select name="loc" class="form-control listings-drop">
+             <option value="" selected>SELECT A CITY</option>
+             @foreach($cities as $cityId => $cityName)
+                 <option value="{{ $cityId }}">{{ $cityName }}</option>
+             @endforeach
          </select>
 
 
-         <select class="form-control listings-drop" name="loc">
+         <select class="form-control listings-drop" name="min">
 
-           <option value="one">LOCATION</option>
-           <option value="two">SPRINGFIELD</option>
-           <option value="agawam">AGAWAM</option>
-           <option value="two">EAST LONGMEADOW</option>
-           <option value="two">HOLYOKE</option>
-           <option value="two">LONGMEADOW</option>
-           <option value="two">CHICOPEE</option>
+           <option value="" disabled selected>MIN PRICE</option>
+           <option value="100000">100,000</option>
+           <option value="150000">100,000</option>
+           <option value="200000">200,000</option>
+           <option value="250000">250,000</option>
+           <option value="300000">300,000</option>
+           <option value="350000">350,000</option>
+
          </select>
 
 
-         <!-- <select class="form-control listings-drop">
-         <option value="one">MIN BEDS</option>
-         <option value="two">1</option>
-         <option value="two">2</option>
-         <option value="two">3</option>
-         <option value="two">4</option>
-         <option value="two">5</option>
-         <option value="two">6</option>
-       </select> -->
+         <select class="form-control listings-drop" name="max">
 
-         <select class="form-control listings-drop">
-         <option value="one">MIN PRICE</option>
-         <option value="two">70,000</option>
-         <option value="two">80,000</option>
-         <option value="two">90,000</option>
-         <option value="two">100,000</option>
-         <option value="two">110,000</option>
-         <option value="two">120,000</option>
-       </select>
+           <option value="" disabled selected>MAX PRICE</option>
+           <option value="100000">100,000</option>
+           <option value="150000">100,000</option>
+           <option value="200000">200,000</option>
+           <option value="250000">250,000</option>
+           <option value="300000">300,000</option>
+           <option value="350000">350,000</option>
+           <option value="400000">400,000</option>
+         </select>
 
+         <select class="form-control listings-drop" name="beds">
 
-         <select class="form-control listings-drop">
-         <option value="one">MAX PRICE</option>
-         <option value="two">70,000</option>
-         <option value="two">80,000</option>
-         <option value="two">90,000</option>
-         <option value="two">100,000</option>
-         <option value="two">110,000</option>
-         <option value="two">120,000</option>
-       </select>
+           <option value="" disabled selected>MIN BEDS</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+
+         </select>
+
+         <select class="form-control listings-drop" name="baths">
+
+           <option value="" disabled selected>MIN BATHS</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+
+         </select>
 
     <button type="submit" class="btn btn-off-white">SEARCH NOW</button>
 
@@ -107,11 +117,12 @@
 
 			<div class="container">
 
+        @if(isset($details))
+
         <h3>{{ $details->total() }}  Result(s) For: {{ request()->input('q') }}</h3>
 
 				<div class="row">
 
-          @if(isset($details))
 
               @foreach($details as $listing)
 
@@ -129,7 +140,10 @@
                 </div>
 
                 <h3>{{$listing->street}}</h3>
-                <h4>{{$listing->city}},{{$listing->state ? $listing->state->name : 'Listing has no state'}}</h4>
+                <h4>
+                  {{$listing->city ? $listing->city->name : 'Listing has no city'}},
+                  {{$listing->state ? $listing->state->name : 'Listing has no state'}}
+                </h4>
 
                 <h5>${{$listing->price}}</h5>
 
@@ -141,23 +155,27 @@
 
 
 
-                    <button type="button" class="btn btn-read-more"><a href="{{route('listing.detail',$listing->id)}}">READ MORE</a></button>
+                    <button type="button" class="btn btn-read-more"><a href="{{route('listings.detail',$listing->id)}}">READ MORE</a></button>
 
 
 
                  </div>
 
-              @endforeach
+                 @endforeach
 
-              @elseif(isset($message))
-          			<p>{{ $message }}</p>
+                 </div> <!-- ROW -->
+
+                 {{ $details->appends(Request::except('page'))->links()}}
+
+                 @elseif(isset($message))
+
+                 <div class="noDetails">
+                   	<p>{{ $message }}</p>
+                 </div>
 
 
-          @endif
 
-				</div>
-
-        {{ $details->appends(Request::except('page'))->links()}}
+             @endif
 
 
 			</div>

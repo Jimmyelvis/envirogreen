@@ -62,7 +62,9 @@
 
                     <div class="row">
                         <h2>{{$listing->street}}</h2>
-												<h4>{{$listing->city}},{{$listing->state ? $listing->state->name : 'Listing has no state'}}</h4>
+												<h4>
+													{{$listing->city ? $listing->city->name : 'Listing has no city'}},{{$listing->state ? $listing->state->name : 'Listing has no state'}}
+												</h4>
 
                     </div>
 

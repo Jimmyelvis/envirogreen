@@ -41,7 +41,7 @@
                     <td> <img height="70" src="{{$listing->fullpic? URL::to($listing->fullpic->file) : 'http://placehold.it/400x400'}}" alt="" ></td>
                     <td>{{$listing->user->name}}</td>
                     <td>{{$listing->street}}</td>
-                    <td>{{$listing->city}}</td>
+                    <td>{{$listing->city ? $listing->city->name : 'Listing has no city'}}</td>
                     <td>{{$listing->state ? $listing->state->name : 'Listing has no state'}}</td>
                     <td>{{$listing->price}}</td>
                     <td>{{$listing->beds}}</td>

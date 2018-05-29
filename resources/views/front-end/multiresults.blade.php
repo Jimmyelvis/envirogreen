@@ -34,23 +34,15 @@
 
     <div class="bottom-row row">
 
-      <form action="/multisearch" method="GET" role="search">
-        {{ csrf_field() }}
+      {!! Form::open(['method'=>'GET', 'action'=> 'ListingController@multiresults','role'=>'search']) !!}
 
         <div class="container">
 
-
-
-
-         <select class="form-control listings-drop" name="loc">
-
-           <option value="" disabled selected>LOCATION</option>
-           <option value="springfield">SPRINGFIELD</option>
-           <option value="agawam">AGAWAM</option>
-           <option value="Longmeadow">LONGMEADOW</option>
-           <option value="Holyoke">HOLYOKE</option>
-           <option value="Avon">AVON</option>
-           <option value="Enfield">Enfield</option>
+          <select name="loc" class="form-control listings-drop">
+             <option value="" selected>SELECT A CITY</option>
+             @foreach($cities as $cityId => $cityName)
+                 <option value="{{ $cityId }}">{{ $cityName }}</option>
+             @endforeach
          </select>
 
 
@@ -79,7 +71,31 @@
            <option value="400000">400,000</option>
          </select>
 
+         <select class="form-control listings-drop" name="beds">
 
+           <option value="" disabled selected>MIN BEDS</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+
+         </select>
+
+         <select class="form-control listings-drop" name="baths">
+
+           <option value="" disabled selected>MIN BATHS</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+
+         </select>
 
 
     <button type="submit" class="btn btn-off-white">SEARCH NOW</button>
@@ -87,7 +103,7 @@
        </div>
 
 
-      </form>
+      {!! Form::close() !!}
 
 
 
@@ -103,7 +119,7 @@
 
         @if(isset($details))
 
-      <h3>{{ $details->total() }}  Result(s) For: {{ request()->input('min') }}</h3>
+      <h3>{{ $details->total() }} RESULTS FOUND</h3>
 
 				<div class="row">
 
@@ -124,7 +140,10 @@
                 </div>
 
                 <h3>{{$listing->street}}</h3>
-                <h4>{{$listing->city}},{{$listing->state ? $listing->state->name : 'Listing has no state'}}</h4>
+                <h4>
+                  {{$listing->city ? $listing->city->name : 'Listing has no city'}},
+                  {{$listing->state ? $listing->state->name : 'Listing has no state'}}
+                </h4>
 
                 <h5>${{$listing->price}}</h5>
 
@@ -136,7 +155,7 @@
 
 
 
-                    <button type="button" class="btn btn-read-more"><a href="{{route('listing.detail',$listing->id)}}">READ MORE</a></button>
+                    <button type="button" class="btn btn-read-more"><a href="{{route('listings.detail',$listing->id)}}">READ MORE</a></button>
 
 
 

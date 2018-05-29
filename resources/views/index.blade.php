@@ -2,30 +2,30 @@
 
 @section('content')
 
-<div class="jumbotron">
+ <div class="jumbotron">
 
-        <div class="container">
+      <div class="container">
 
-            <h1>LET'S BRING YOU HOME</h1>
+          <h1>LET'S BRING YOU HOME</h1>
 
-            <h3>WE CAN HELP, LET'S FIND OUT HOW</h3>
+          <h3>WE CAN HELP, LET'S FIND OUT HOW</h3>
 
-            <div id="home-search">
+          <div id="home-search">
 
-                <form action="/search" method="GET" role="search">
-             			{{ csrf_field() }}
+            <form action="/search" method="GET" role="search">
+          			{{ csrf_field() }}
 
-                    <div class="form-wrapper">
-                     		<input type="text" class="search-query" name="q"	placeholder="Search citys" autocomplete="off">
-                    </div>
+                <div class="form-wrapper">
+                 		<input type="text" class="search-query" name="q"	placeholder="Search citys" autocomplete="off" id="searchname">
+                </div>
 
-                    <button type="submit" class="btn btn-success">SEARCH</button>
+                <button type="submit" class="btn btn-success">SEARCH</button>
 
-               </form>
+           </form>
 
-            </div>
+          </div>
 
-        </div>
+      </div>
 
     </div>
 
@@ -36,25 +36,25 @@
 
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-                    <div class="feat-listing"> <img src="images/houses\pexels-photo-221024.jpeg" alt="">
-                        <h3>69 Walsh st.</h3>
-                        <h4>Seattle Washington</h4>
+                    <div class="feat-listing"> <img src="{{ asset('images/houses/1522785654pexels-photo-259098.jpg') }}" alt="">
+                        <h3>69 Waters Street</h3>
+                        <h4>Springfield,MA.</h4>
                         <hr>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione blanditiis voluptates asperiores culpa unde voluptas temporibus totam neque, in placeat!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div class="feat-listing"> <img src="images/houses\pexels-photo-221024.jpeg" alt="">
-                        <h3>69 Walsh st.</h3>
-                        <h4>Seattle Washington</h4>
+                    <div class="feat-listing"> <img src="{{ asset('images/houses/1522461134pexels-photo-534184.jpg') }}" alt="">
+                        <h3>73 River Drive</h3>
+                        <h4>Monson,MA.</h4>
                         <hr>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione blanditiis voluptates asperiores culpa unde voluptas temporibus totam neque, in placeat!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div class="feat-listing"> <img src="images/houses\pexels-photo-221024.jpeg" alt="">
-                        <h3>69 Walsh st.</h3>
-                        <h4>Seattle Washington</h4>
+                    <div class="feat-listing"> <img src="{{ asset('images/houses/1526257734pexels-photo-206172.jpeg') }}" alt="">
+                        <h3>76 Splash Road</h3>
+                        <h4>Enfield,CT.</h4>
                         <hr>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione blanditiis voluptates asperiores culpa unde voluptas temporibus totam neque, in placeat!</p>
                     </div>
@@ -65,11 +65,6 @@
     </section>
 
 
-    <!--
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////LEFT OFF HERE///////////////////////////////////////////////
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--->
 
     <section id="whoweare">
         <div class="row">
@@ -80,7 +75,7 @@
             </div>
 
             <div class="col-md-6">
-                <img class="who-img img-responsive" src="images/houses\pexels-photo-221024.jpeg" alt="">
+                <img class="who-img img-responsive" src="{{ asset('images/houses/1526522488pexels-photo-221024.jpg') }}" alt="">
             </div>
 
         </div>
@@ -90,9 +85,10 @@
     <section id="testimonials">
         <div class="container">
             <h2>WHAT OUR CUSTOMERS SAY ABOUT US</h2>
+
             <div class="row">
 
-                <div class="quote col-md-6">
+                <div class="quote col-md-6 col-sm-12">
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                     <p>
                         First Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam velit nisi excepturi omnis reiciendis perspiciatis, earum, perferendis harum repellendus magnam deserunt est sunt dolorum.
@@ -102,7 +98,9 @@
 
                 </div>
 
-                <div class="quote col-md-6">
+                <div class="clear"></div>
+
+                <div class="quote col-md-6 col-sm-12">
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                     <p>
                         Second Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam velit nisi excepturi omnis reiciendis perspiciatis, earum, perferendis harum repellendus magnam deserunt est sunt dolorum.
@@ -112,12 +110,14 @@
 
                 </div>
 
+                <div class="clear"></div>
+
             </div>
 
 
             <div class="row">
 
-                <div class="quote col-md-6">
+                <div class="quote col-md-6 col-sm-12">
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam velit nisi excepturi omnis reiciendis perspiciatis, earum, perferendis harum repellendus magnam deserunt est sunt dolorum.
@@ -127,7 +127,9 @@
 
                 </div>
 
-                <div class="quote col-md-6">
+                <div class="clear"></div>
+
+                <div class="quote col-md-6 col-sm-12">
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam velit nisi excepturi omnis reiciendis perspiciatis, earum, perferendis harum repellendus magnam deserunt est sunt dolorum.
@@ -137,11 +139,34 @@
 
                 </div>
 
+                <div class="clear"></div>
+
             </div>
 
         </div>
 
     </section>
+
+    <script type="text/javascript">
+
+      $("#searchname").focus(function(){
+          document.getElementById('home-search').style.top = '29px';
+      });
+
+      // $('#searchname').blur(function() {
+      //   document.getElementById('home-search').style.top = '229px';
+      // });
+
+
+      $('#searchname').autocomplete({
+
+        source : '{!!URL::route('autocomplete')!!}',
+        minlength:1,
+        autoFocus:true
+
+      });
+
+    </script>
 
 
 @endsection

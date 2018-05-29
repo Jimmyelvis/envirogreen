@@ -12,6 +12,7 @@ use App\ExtraPhotoFour;
 use App\Photo;
 use App\Category;
 use App\State;
+use App\City;
 use App\Listing;
 use App\Helpers;
 use App\Http\Requests\ListingRequest;
@@ -44,8 +45,9 @@ class AdminListingsController extends Controller
         //
         $catagories = Category::lists('name','id')->all();
         $states = State::lists('name','id')->all();
+        $cities = City::lists('name','id')->all();
         $users = User::lists('name','id','photo_id')->all();
-        return view('admin.listings.create', compact('catagories','states','users'));
+        return view('admin.listings.create', compact('catagories', 'cities', 'states','users'));
     }
 
     /**
@@ -60,6 +62,7 @@ class AdminListingsController extends Controller
       //Request of the entire form
 
       $input = $request->all();
+
 
       if($file = $request->file('fullpic_id')) {
 
@@ -136,9 +139,10 @@ class AdminListingsController extends Controller
 
         $catagories = Category::lists('name','id')->all();
         $states = State::lists('name','id')->all();
+        $cities = City::lists('name','id')->all();
         $users = User::lists('name','id','photo_id')->all();
 
-        return view('admin.listings.edit', compact('listings','catagories','states','users'));
+        return view('admin.listings.edit', compact('listings','catagories','states', 'cities', 'users'));
     }
 
     /**

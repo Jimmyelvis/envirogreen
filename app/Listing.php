@@ -12,8 +12,8 @@ class Listing extends Model
       protected $fillable = [
 
         'street',
-        'city',
-        'state',
+        'city_id',
+        'state_id',
         'price',
         'beds',
         'baths',
@@ -42,6 +42,12 @@ class Listing extends Model
       public function state(){
 
           return $this->belongsTo('App\State');
+
+      }
+
+      public function city(){
+
+          return $this->belongsTo('App\City');
 
       }
 

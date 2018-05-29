@@ -19,8 +19,7 @@
                        </div>
 
                        <div class="form-entry">
-                         {!! Form::text('city', null, ['required autocomplete' => 'off'])!!}
-                         {!! Form::label('city', 'City:') !!}
+                         {!! Form::select('city_id', $cities, null, ['required autocomplete' => 'off'],['class'=>'select'])!!}
                        </div>
 
                        <div class="form-entry select-label">

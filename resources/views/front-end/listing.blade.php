@@ -13,7 +13,7 @@
         <div class="col-xs-4">
 
            <h2>Properties</h2>
-            <h3>Listings for Sale or Rent - <span class="count">  {{ $listings->count() }}</span> </h3>
+            <h3>Listings for Sale or Rent - <span class="count">  {{ $listings->total() }}</span> </h3>
 
         </div>
 
@@ -37,6 +37,13 @@
 
           <div class="container">
 
+            <select name="loc" class="form-control listings-drop">
+               <option value="" selected>SELECT A CITY</option>
+               @foreach($cities as $cityId => $cityName)
+                   <option value="{{ $cityId }}">{{ $cityName }}</option>
+               @endforeach
+           </select>
+
 
            <select class="form-control listings-drop" name="min">
 
@@ -49,8 +56,6 @@
              <option value="350000">350,000</option>
 
            </select>
-
-           {!! Form::select('city', $cities, null, ['placeholder'=>'City', 'class'=>'form-control listings-drop', 'name'=> 'loc']) !!}
 
 
            <select class="form-control listings-drop" name="max">
@@ -65,14 +70,31 @@
              <option value="400000">400,000</option>
            </select>
 
-          <select class="form-control listings-drop" name="cat">
+           <select class="form-control listings-drop" name="beds">
 
-            <option value="" disabled selected>TYPE</option>
-            <option class="listing-option" value="1">FOR SALE</option>
-            <option value="2">FOR RENT</option>
-          </select>
+             <option value="" disabled selected>MIN BEDS</option>
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
 
+           </select>
 
+           <select class="form-control listings-drop" name="baths">
+
+             <option value="" disabled selected>MIN BATHS</option>
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+
+           </select>
 
 
       <button type="submit" class="btn btn-off-white">SEARCH NOW</button>
@@ -99,6 +121,10 @@
 
           @if($listings)
 
+          <h3>TOTAL LISTINGS: {{ $listings->total() }}</h3>
+          <br>
+          <h4>In this page: {{ $listings->count() }} Listings</h4>
+
             @foreach($listings as $listing)
 
               <div class="col-md-4 listing-card">
@@ -115,7 +141,10 @@
                 </div>
 
                 <h3>{{$listing->street}}</h3>
-                <h4>{{$listing->city}},{{$listing->state ? $listing->state->name : 'Listing has no state'}}</h4>
+                <h4>
+                  {{$listing->city ? $listing->city->name : 'Listing has no city'}},
+                  {{$listing->state ? $listing->state->name : 'Listing has no state'}}
+                </h4>
 
                 <h5>${{$listing->price}}</h5>
 
@@ -127,7 +156,9 @@
 
 
 
-                    <button type="button" class="btn btn-read-more"><a href="{{route('listing.detail',$listing->id)}}">READ MORE</a></button>
+              <button type="button" class="btn btn-read-more">
+                <a href="{{route('listings.detail', $listing->id)}}">READ MORE</a>
+              </button>
 
 
 
@@ -135,9 +166,13 @@
 
             @endforeach
 
+
           @endif
 
 				</div>
+
+        {{ $listings->links() }}
+
 
 			</div>
 

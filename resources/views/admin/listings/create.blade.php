@@ -18,9 +18,8 @@
                          {!! Form::label('street', 'Street:') !!}
                        </div>
 
-                       <div class="form-entry">
-                         {!! Form::text('city', null, ['required autocomplete' => 'off'])!!}
-                         {!! Form::label('city', 'City:') !!}
+                       <div class="form-entry select-label">
+                         {!! Form::select('city_id',[''=>'City:'] + $cities, null, ['required autocomplete' => 'off'],['class'=>'select'])!!}
                        </div>
 
                        <div class="form-entry select-label">

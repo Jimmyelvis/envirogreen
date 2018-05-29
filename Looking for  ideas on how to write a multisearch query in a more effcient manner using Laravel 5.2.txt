@@ -1,0 +1,209 @@
+
+
+So I have a fiction Real estate website, with a multi-option search function. A user can search using a variety of filters such as City, Min price, Max Price etc.
+It works just fine, but I can't help but think that there could be a more efficient way, to write this.
+
+The way I have it setup is, I use if/else statements to determine what options have been chosen. For example, if all options were chosen this if statement would be met, and the query inside of the if statement would be run,
+
+```php
+
+  if(isset($min) && isset($max) && isset($loc) && isset($beds) && isset($baths) ){
+  
+                
+echo "  ALL OPTIONS SET";
+                  
+  $listing = Listing::where ( 'price', '>=',  $min )
+                                  
+  ->where('price', '<=',  $max )                            
+  ->where('beds', '>=',  $beds )                                
+  ->where('baths', '>=',  $baths )                                 
+  ->where ( 'city_id', '=',  $loc )->paginate($pageinate);         
+}
+
+```
+
+If a user was simply looking for listings between a minimum price and a maximum price this bit of code is run:
+
+```php
+
+else if(isset($min) && isset($max) ){
+                 
+echo "  MIN/MAX PRICE SET";
+               
+  $listing = Listing::where ( 'price', '>=',  $min )                                  
+     ->where('price', '<=',  $max )->paginate($pageinate);         
+}               
+
+
+```
+
+Like I said it works as I expected, however, I can easily see myself writing at least 7 or more if statements to try to account for all search possibilities. Is this the best approach to this or is there a more efficient way to write this?
+
+Here the entire function in my controller that does the queries
+
+
+```php
+
+public function multiresults()
+    {
+
+$pageinate = 9;
+    
+$cities = City::all()->pluck('name' , 'id');
+
+
+$loc = Input::has('loc') ?  Input::get('loc') : null;
+$min = Input::has('min') ? Input::get('min') : $min = null;      
+$max = Input::has('max') ? Input::get('max') : $max = null;        
+$beds = Input::has('beds') ? Input::get('beds') : $beds = null;        
+$baths = Input::has('baths') ? Input::get('baths') : $baths = null;
+
+echo "CITY   " .  $loc .  "<br>" . "MIN PRICE " .  $min . "<br>" . "MAX PRICE " .  $max  .  "<br>" . "MIN beds "  . $beds .  "<br>" . "MIN baths " .  $baths .  "<br>";
+
+//CONDITIONS
+
+                
+
+if(isset($min) && isset($max) && isset($loc) && isset($beds) && isset($baths) ){
+               
+echo "  ALL OPTIONS SET";
+                  
+$listing = Listing::where ( 'price', '>=',  $min )
+                                  ->where('price', '<=',  $max )
+                                  ->where('beds', '>=',  $beds )
+                                  ->where('baths', '>=',  $baths )
+                                  ->where ( 'city_id', '=',  $loc )->paginate($pageinate);              
+}
+                
+
+else if(isset($min) && isset($max) && isset($loc) ){
+                  
+echo "  MIN/MAX PRICE & CITY SET";                
+$listing = Listing::where ( 'price', '>=',  $min )
+                                  ->where('price', '<=',  $max )->paginate($pageinate);
+                
+}
+                
+
+
+else if(isset($min) && isset($max) ){
+
+echo "  MIN/MAX PRICE SET";
+$listing = Listing::where ( 'price', '>=',  $min )
+                                  ->where('price', '<=',  $max )->paginate($pageinate);
+}
+                
+
+
+else if(isset($beds)){
+
+echo "  MIN BEDS SET";                
+$listing = Listing::where('beds', '>=',  $beds )->paginate($pageinate);
+
+}
+                
+
+else if(isset($baths)){
+
+echo "  MIN BATHS SET";              
+$listing = Listing::where('baths', '>=',  $baths )->paginate($pageinate);
+
+}
+                
+
+else if(isset($loc)){
+                  
+echo "  CITY SET";             
+$listing = Listing::where ( 'city_id', '=',  $loc )->paginate($pageinate);
+                
+}
+
+
+if (count ( $listing ) > 0)
+	return view ( 'front-end/multiresults', compact('cities'))->withDetails ( $listing )->withQuery ( $min, $max, $loc, $beds, $baths );
+
+else     
+	return view ( 'front-end/multiresults', compact('cities'))->withMessage ( 'No Details found. Try to search again !' );
+
+    }
+
+```
+
+And here's search part from my view
+
+```php
+
+  {!! Form::open(['method'=>'GET', 'action'=> 'ListingController@multiresults','role'=>'search']) !!}
+
+          <div class="container">
+
+            <select name="loc" class="form-control listings-drop">
+               <option value="" selected>SELECT A CITY</option>
+               @foreach($cities as $cityId => $cityName)
+                   <option value="{{ $cityId }}">{{ $cityName }}</option>
+               @endforeach
+           </select>
+
+
+           <select class="form-control listings-drop" name="min">
+
+             <option value="" disabled selected>MIN PRICE</option>
+             <option value="100000">100,000</option>
+             <option value="150000">100,000</option>
+             <option value="200000">200,000</option>
+             <option value="250000">250,000</option>
+             <option value="300000">300,000</option>
+             <option value="350000">350,000</option>
+
+           </select>
+
+
+           <select class="form-control listings-drop" name="max">
+
+             <option value="" disabled selected>MAX PRICE</option>
+             <option value="100000">100,000</option>
+             <option value="150000">100,000</option>
+             <option value="200000">200,000</option>
+             <option value="250000">250,000</option>
+             <option value="300000">300,000</option>
+             <option value="350000">350,000</option>
+             <option value="400000">400,000</option>
+           </select>
+
+           <select class="form-control listings-drop" name="beds">
+
+             <option value="" disabled selected>MIN BEDS</option>
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+
+           </select>
+
+           <select class="form-control listings-drop" name="baths">
+
+             <option value="" disabled selected>MIN BATHS</option>
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+
+           </select>
+
+
+      <button type="submit" class="btn btn-off-white">SEARCH NOW</button>
+
+         </div>
+
+
+        {!! Form::close() !!}
+
+
+
+```
