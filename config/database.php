@@ -87,7 +87,7 @@ return [
 
         'pgsql_production' => [
             'driver' => 'pgsql',
-            'host' => 127.0.0.1,
+            'host' => $host,
             'database' => $database,
             'username' => $username,
             'password' => $password,
