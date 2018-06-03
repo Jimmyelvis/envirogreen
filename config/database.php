@@ -27,8 +27,9 @@ return [
     |
     */
 
+    'default' => env('DB_CONNECTION', 'mysql-production'),
     // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    // 'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,6 +66,21 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'strict' => false,
+            'engine' => null,
+        ],
+
+        'mysql-production' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'db4free.net'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'envirogreen'),
+            'username' => env('DB_USERNAME', 'dylancougar'),
+            'password' => env('DB_PASSWORD', 'panther69'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
             'engine' => null,
         ],
 
