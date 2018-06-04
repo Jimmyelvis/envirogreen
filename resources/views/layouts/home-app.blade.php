@@ -153,9 +153,7 @@
                </div>
            </li>
            <li><a href="/listings">Listings</a></li>
-           <li><a href="#">Contact</a></li>
-           <!-- <li><a href="#" class="login">Login</a></li>
-           <li><a href="#" class="register">Register</a></li> -->
+           <li><a href="/contact">Contact</a></li>
        </ul>
 
     </div>
@@ -174,7 +172,7 @@
       </div>
     </li>
     <li><a href="/listings">Listings</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="/contact">Contact</a></li>
   </div>
 
 
