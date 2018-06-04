@@ -145,7 +145,9 @@ class ListingController extends Controller
         //CONDITIONS
 
         if(isset($min) && isset($max) && isset($loc) && isset($beds) && isset($baths) ){
-          echo "  ALL OPTIONS SET";
+
+          // echo "  ALL OPTIONS SET";
+
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )
                           ->where('beds', '>=',  $beds )
@@ -153,37 +155,37 @@ class ListingController extends Controller
                           ->where ( 'city_id', '=',  $loc )->paginate($pageinate);
         }
         else if(isset($min) && isset($max) && isset($loc) ){
-          echo "  MIN/MAX PRICE & CITY SET";
+          // echo "  MIN/MAX PRICE & CITY SET";
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )->paginate($pageinate);
         }
         else if(isset($min) && isset($max) ){
-          echo "  MIN/MAX PRICE SET";
+          // echo "  MIN/MAX PRICE SET";
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )->paginate($pageinate);
         }
         else if(isset($min) && isset($max) && isset($beds)){
-          echo "  MIN/MAX PRICE MIN BEDS SET";
+          // echo "  MIN/MAX PRICE MIN BEDS SET";
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )
                           ->where('beds', '>=',  $beds )->paginate($pageinate);
         }
         else if(isset($min) && isset($max) && isset($baths)){
-          echo "  MIN/MAX PRICE MIN BATHS SET";
+          // echo "  MIN/MAX PRICE MIN BATHS SET";
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )
                           ->where('baths', '>=',  $baths )->paginate($pageinate);
         }
         else if(isset($beds)){
-          echo "  MIN BEDS SET";
+          // echo "  MIN BEDS SET";
           $listing = Listing::where('beds', '>=',  $beds )->paginate($pageinate);
         }
         else if(isset($baths)){
-          echo "  MIN BATHS SET";
+          // echo "  MIN BATHS SET";
           $listing = Listing::where('baths', '>=',  $baths )->paginate($pageinate);
         }
         else if(isset($loc)){
-          echo "  CITY SET";
+          // echo "  CITY SET";
           $listing = Listing::where ( 'city_id', '=',  $loc )->paginate($pageinate);
         }
 
