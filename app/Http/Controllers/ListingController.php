@@ -139,7 +139,7 @@ class ListingController extends Controller
         $beds = Input::has('beds') ? Input::get('beds') : $beds = null;
         $baths = Input::has('baths') ? Input::get('baths') : $baths = null;
 
-        echo "CITY   " .  $loc .  "<br>" . "MIN PRICE " .  $min . "<br>" . "MAX PRICE " .  $max  .  "<br>" . "MIN beds "  . $beds .  "<br>" . "MIN baths " .  $baths .  "<br>";
+        // echo "CITY   " .  $loc .  "<br>" . "MIN PRICE " .  $min . "<br>" . "MAX PRICE " .  $max  .  "<br>" . "MIN beds "  . $beds .  "<br>" . "MIN baths " .  $baths .  "<br>";
 
 
         //CONDITIONS
