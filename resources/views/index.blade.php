@@ -149,6 +149,12 @@
 
     <script type="text/javascript">
 
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+      });
+
       $("#searchname").focus(function(){
           document.getElementById('home-search').style.top = '29px';
       });
