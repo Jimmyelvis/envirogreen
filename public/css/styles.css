@@ -463,10 +463,16 @@ p {
   }
 }
 
-@media(max-width:400px) {
+@media(max-width:500px) {
+
   .navbar-brand {
     margin-left: 0;
   }
+
+  .side-nav{
+    top: 203.3px;
+  }
+
 }
 
 /*
@@ -1605,6 +1611,10 @@ IE 10+.search-field:-ms-input-placeholder {
   color: #6b7a9e;
 }
 
+.countgreen {
+  color: #1cc198;
+}
+
 .bottom-row .container {
   display: flex;
   justify-content: space-around;
@@ -2208,6 +2218,7 @@ h5 {
 @media(max-width:990px) {
   .list-full-pic {
     width: 95%;
+    height: auto;
     margin: 0 auto 50px auto;
     border-radius: 3px;
     border: 4px solid #fff;
@@ -2238,12 +2249,10 @@ h5 {
   .listing-thumbnails li img {
     float: left;
     margin: 0px 2%;
-  }
-  .listing-thumbnails img {
-    width: 10%;
-    height: 80px;
-    border: 4px solid #fff;
-  }
+    width: 20%;
+    height: auto;
+    padding-bottom: .1%;
+}
   .listing-attr {
     float: left;
     margin-top: 7%;
@@ -2252,26 +2261,75 @@ h5 {
     margin-top: 7%;
     float: left;
   }
+
 }
 
 @media(max-width:767px) {
+
+
+  .breadcrumb-list-detail{
+    height: 10%;
+  }
+
+  .list-side-right {
+      padding-top: 50px;
+  }
+
+  .list-side-right .row{
+      float: left;
+  }
+
+
+  .listingaddress {
+      width: 100%;
+  }
+
+  .agentinfo {
+      width: 100%;
+  }
+
+  .listingpicrow{
+    width: 50%;
+  }
+
+  .listinginfo{
+    width: 50%;
+  }
+
+
   .list-agent-pic {
-    display: none;
+    width: 70%;
   }
   .list-side-right h2 {
     color: #1bc197;
-    font-size: 100%;
+    font-size: 180%;
     padding: 0;
+    text-align: center;
   }
   .list-side-right h4 {
-    font-size: 80%;
+    font-size: 110%;
     padding: 0;
-    text-align: left;
+    text-align: center;
   }
   .list-side-right h3 {
-    font-size: 80%;
+    font-size: 120%;
     margin: 40px 0 20px 0;
   }
+
+  .list-desc h3 {
+      color: #1bc197;
+      font-size: 200%;
+      text-align: center;
+  }
+
+  .listing-attr li {
+      margin-bottom: 10px;
+  }
+
+  .listing-label li {
+      margin-bottom: 8px;
+  }
+
   .listing-thumbnails li img {
     float: left;
     margin: 0px 2%;
@@ -2281,6 +2339,14 @@ h5 {
     height: 80px;
     border: 4px solid #fff;
   }
+
+  .form h4 {
+      color: #1cc198;
+      font-size: 200%;
+      margin-bottom: 40px;
+      margin-left: 20px;
+  }
+
   .features ul {
     margin-right: 15%;
     float: left;
@@ -2288,4 +2354,57 @@ h5 {
   .features ul li {
     padding: 5px 0
   }
+
+  p {
+      font-size: 100%;
+      width: 80%;
+      margin: 30px auto;
+  }
+
+}
+
+@media(max-width:600px) {
+
+  .breadcrumb-list-detail {
+      height: 15%;
+  }
+
+  .list-side-right h3 {
+      text-align: center;
+  }
+
+  .listingpicrow{
+    width: 100%;
+  }
+
+  .list-agent-pic {
+      width: 50%;
+      margin: 0 auto;
+      display: block;
+  }
+
+  .listinginfo {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+  }
+
+
+}
+
+@media(max-width:450px) {
+
+  .list-desc h3 {
+      font-size: 180%;
+  }
+
+  .form h4 {
+      font-size: 180%;
+  }
+
+  .form .col-md-12 .btn-success {
+      padding: 3% 4%;
+      font-size: 85%;
+  }
+
 }

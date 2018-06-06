@@ -67,7 +67,7 @@
     					  <a href="/about">Background</a>
     					</div>
     				</li>
-    				<li><a href="/listings">Listing</a></li>
+    				<li><a href="/listings">Listings</a></li>
     				<li><a href="/contact">Contact</a></li>
     			</ul>
     		</div>
@@ -145,7 +145,8 @@
 
     </footer>
 
-    <script src="js/slide-menu.js"></script>
+    <!-- <script src="js/slide-menu.js"></script> -->
+    <script src="{{ asset('js/slide-menu.js') }}"></script>
 
 
 </body>

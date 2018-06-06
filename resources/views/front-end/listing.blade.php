@@ -17,7 +17,7 @@
 
         </div>
 
-        <div class=".col-xs-4 .col-xs-offset-4">
+        <div class=".col-md-4 .col-md-offset-4">
 
           <ol class="breadcrumb pull-right">
             <li><a href="#">Home</a></li>
@@ -121,9 +121,9 @@
 
           @if($listings)
 
-          <h3>TOTAL LISTINGS: {{ $listings->total() }}</h3>
+          <h3>TOTAL LISTINGS: <span class="countgreen">{{ $listings->total() }}</span> </h3>
           <br>
-          <h4>In this page: {{ $listings->count() }} Listings</h4>
+          <h4>In this page: <span class="countgreen">{{ $listings->count() }}</span> Listings</h4>
 
             @foreach($listings as $listing)
 
