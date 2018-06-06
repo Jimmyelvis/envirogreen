@@ -42,8 +42,6 @@
   </div>
 
 
-
-
 <div id="listing-detail">
 
 	<div class="container">

@@ -111,7 +111,6 @@
 
   </div>
 
-
   <div id="listings">
 
 			<div class="container">
@@ -159,7 +158,6 @@
               <button type="button" class="btn btn-read-more">
                 <a href="{{route('listings.detail', $listing->id)}}">READ MORE</a>
               </button>
-
 
 
                  </div>

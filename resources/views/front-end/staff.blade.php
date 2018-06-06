@@ -31,24 +31,6 @@
   </div>
 
 
-
- 	<!-- <div id="team-nav">
-
- 		<div class="container">
-
- 			<ul class="team-nav">
- 				<li><a href="#" class="active">All</a></li>
- 				<li><a href="#">Founders</a></li>
- 				<li><a href="#">Agents</a></li>
- 				<li><a href="#">Sales</a></li>
- 			</ul>
-
- 		</div>
-
- 	</div> -->
-
-
-
 <div id="team-listing">
 
 	<div class="container">
