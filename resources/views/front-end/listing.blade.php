@@ -155,9 +155,9 @@
 
 
 
-              <button type="button" class="btn btn-read-more">
-                <a href="{{route('listings.detail', $listing->id)}}">READ MORE</a>
-              </button>
+
+                <a class="btn btn-read-more" href="{{route('listings.detail', $listing->id)}}">READ MORE</a>
+          
 
 
                  </div>
