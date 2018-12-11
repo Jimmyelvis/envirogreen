@@ -2,7 +2,7 @@
 
 # EnivroGreen Reality
 
-A very simple, fictional Real Estate site built using the Laravel 5 framework. This has enabled me to increase my knowledge of PHP while also learning the Laravel framework.
+This A very simple, fictional Real Estate site. The front-end is simply HTML/CSS using the BootStrap framework. And a small bit of JavaScript, mainly to handle the AJAX search, on the homepage. The back-end however was built using the Laravel 5 framework, and uses a MySQL database. This has enabled me to increase my knowledge of PHP while also learning the Laravel framework.
 
 ## Getting Started
 
