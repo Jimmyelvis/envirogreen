@@ -91,7 +91,7 @@ return [
             'port' => '3306',
             'database' => 'envirogreen',
             'username' => 'jinjoe',
-            'password' => 'panther',
+            'password' => 'panther69',
             'unix_socket' => '',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
