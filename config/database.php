@@ -27,7 +27,8 @@ return [
     |
     */
 
-    'default' => 'mysql-production',
+    // 'default' => 'mysql-production',
+    'default' => 'mysql-production-v2',
     // 'default' => env('DB_CONNECTION', 'mysql'),
     // 'default' => env('DB_CONNECTION', 'pgsql'),
 
@@ -76,6 +77,21 @@ return [
             'database' => 'envirogreen',
             'username' => 'dylancougar',
             'password' => 'panther69',
+            'unix_socket' => '',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
+        'mysql-production-v2' => [
+            'driver' => 'mysql',
+            'host' => 'mlmontheweb.com',
+            'port' => '3306',
+            'database' => 'envirogreen',
+            'username' => 'jinjoe',
+            'password' => 'panther',
             'unix_socket' => '',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',

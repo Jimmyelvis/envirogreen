@@ -149,15 +149,23 @@ class ListingController extends Controller
           // echo "  ALL OPTIONS SET";
 
           $listing = Listing::where ( 'price', '>=',  $min )
-                          ->where('price', '<=',  $max )
-                          ->where('beds', '>=',  $beds )
-                          ->where('baths', '>=',  $baths )
-                          ->where ( 'city_id', '=',  $loc )->paginate($pageinate);
+                            ->where('price', '<=',  $max )
+                            ->where('beds', '>=',  $beds )
+                            ->where('baths', '>=',  $baths )
+                            ->where ( 'city_id', '=',  $loc )->paginate($pageinate);
         }
         else if(isset($min) && isset($max) && isset($loc) ){
           // echo "  MIN/MAX PRICE & CITY SET";
           $listing = Listing::where ( 'price', '>=',  $min )
                           ->where('price', '<=',  $max )->paginate($pageinate);
+        }
+        else if(isset($min)){
+          // echo "  MIN/MAX PRICE SET";
+          $listing = Listing::where ( 'price', '>=',  $min )->paginate($pageinate);
+        }
+        else if(isset($max)){
+          // echo "  MIN/MAX PRICE SET";
+          $listing = Listing::where ( 'price', '<=',  $max )->paginate($pageinate);
         }
         else if(isset($min) && isset($max) ){
           // echo "  MIN/MAX PRICE SET";
