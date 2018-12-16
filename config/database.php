@@ -87,7 +87,7 @@ return [
 
         'mysql-production-v2' => [
             'driver' => 'mysql',
-            'host' => 'mlmontheweb.com',
+            'host' => 'mlmontheweb.cm',
             'port' => '3306',
             'database' => 'envirogreen',
             'username' => 'jinjoe',
