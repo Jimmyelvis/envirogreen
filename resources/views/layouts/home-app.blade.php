@@ -9,20 +9,29 @@
 
   <title>Welcome To Envirogreen Reality</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="fonts/fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.css">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="fonts/fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.css">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Styles -->
+  <link rel="stylesheet" href="<link rel=" stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link href="css/styles.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
 
 
 
@@ -49,7 +58,7 @@
       text-shadow: 1px 1px 1px #000000;
     }
 
-    .jumbotron h1{
+    .jumbotron h1 {
       color: #272727;
       font-size: 53px;
     }
@@ -60,7 +69,7 @@
     }
 
     .ui-helper-hidden-accessible {
-        display: none;
+      display: none;
     }
 
     @media (max-width: 1100px) {
@@ -102,7 +111,6 @@
       }
 
     }
-
   </style>
 
 
@@ -131,30 +139,30 @@
 
       <span class="open-slide pull-right">
 
-			<a href="#" onclick="openSlideMenu()">
+        <a href="#" onclick="openSlideMenu()">
 
-				<svg width="40" height="40">
-					<path d="M0,5 30,5" stroke="#1cc198" stroke-width="5"/>
-					<path d="M0,14 30,14" stroke="#1cc198" stroke-width="5"/>
-					<path d="M0,23 30,23" stroke="#1cc198" stroke-width="5"/>
-				</svg>
+          <svg width="40" height="40">
+            <path d="M0,5 30,5" stroke="#1cc198" stroke-width="5" />
+            <path d="M0,14 30,14" stroke="#1cc198" stroke-width="5" />
+            <path d="M0,23 30,23" stroke="#1cc198" stroke-width="5" />
+          </svg>
 
-			</a>
+        </a>
 
-		</span>
+      </span>
 
       <ul class="navbar-navig pull-right">
-           <li><a href="/" class="active">Home</a></li>
-           <li class="d-down">
-               <a href="#" class="ddown-btn">About Us</a>
-               <div class="dwn-menu">
-                   <a href="/staff">Our Agents</a>
-                   <a href="/about">Background</a>
-               </div>
-           </li>
-           <li><a href="/listings">Listings</a></li>
-           <li><a href="/contact">Contact</a></li>
-       </ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li class="d-down">
+          <a href="#" class="ddown-btn">About Us</a>
+          <div class="dwn-menu">
+            <a href="/staff">Our Agents</a>
+            <a href="/about">Background</a>
+          </div>
+        </li>
+        <li><a href="/listings">Listings</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
 
     </div>
 
@@ -176,7 +184,7 @@
   </div>
 
 
-    @yield('content')
+  @yield('content')
 
 
 
@@ -184,51 +192,51 @@
   <footer>
 
 
-      <div class="top">
+    <div class="top">
 
-  		<div class="container">
+      <div class="container">
 
-  			<div class="row">
+        <div class="row">
 
-  					<img class="btm-ftr" src="{{ asset('images/ftr_logo.png') }}" alt="">
+          <img class="btm-ftr" src="{{ asset('images/ftr_logo.png') }}" alt="">
 
-  			</div>
+        </div>
 
-  			<div class="row">
+        <div class="row">
 
-  				<div class="col-md-4 col-md-offset-4">
-  			          <h4>2017 ENVIROGREEN </h4>
-  				</div>
+          <div class="col-md-4 col-md-offset-4">
+            <h4>2017 ENVIROGREEN </h4>
+          </div>
 
-  			</div>
+        </div>
 
-
-
-  		</div>
-
-       </div>
-
-      <div class="bottom">
-
-
-  		<div class="container">
-
-  			  <ul>
-  				<li><a href="">HOME</a></li>
-  				<li><a href="">ABOUT US</a></li>
-  				<li><a href="">PROPERTIES</a></li>
-  				<li><a href="">BLOG</a></li>
-  				<li><a href="">CONTACT</a></li>
-  			  </ul>
-
-  		 </div>
 
 
       </div>
 
+    </div>
+
+    <div class="bottom">
+
+
+      <div class="container">
+
+        <ul>
+          <li><a href="">HOME</a></li>
+          <li><a href="">ABOUT US</a></li>
+          <li><a href="">PROPERTIES</a></li>
+          <li><a href="">BLOG</a></li>
+          <li><a href="">CONTACT</a></li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
   </footer>
 
-   <script src="js/slide-menu.js"></script>
+  <script src="js/slide-menu.js"></script>
 
 
 </body>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
+
 use App\Http\Requests;
 
 class ListingController extends Controller
@@ -144,6 +145,7 @@ class ListingController extends Controller
 
         //CONDITIONS
 
+        
         if(isset($min) && isset($max) && isset($loc) && isset($beds) && isset($baths) ){
 
           // echo "  ALL OPTIONS SET";

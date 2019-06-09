@@ -89,6 +89,11 @@ class Listing extends Model
 
       //scopes
 
+      public function queryhelper() {
+        echo('from query helper');
+      }
+      
+
       public function scopeCitySearch($query, $s)
       {
           return $query->where('city', 'like', '%' .$s. '%');
