@@ -2,36 +2,18 @@
 
 @section('content')
 
-<div class="bread-crumb-menu">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-md-4">
-
-				   <h2>Meet Our Team</h2>
-
-				</div>
-
-				<div class=".col-md-4 .col-md-offset-4">
-
-					<ol class="breadcrumb">
-					  <li><a href="/">Home</a></li>
-					  <li><a href="">About Us</a></li>
-					  <li class="active">Our Team</li>
-					</ol>
-
-				</div>
-
-			</div>
-
-		</div>
-
-  </div>
 
 
 <div id="team-listing">
+
+	<div class="header headerStaff">
+
+			<img  src="{{ asset('images/pexels-photo-280232.jpg') }}">
+                            
+			<div class="overlay"></div>
+			<h2>Our Staff</h2>
+
+	</div>
 
 	<div class="container">
 

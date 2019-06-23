@@ -66,6 +66,8 @@ class ListingController extends Controller
     {
         //
         $listing = Listing::findOrFail($id);
+        $user = User::all()->pluck('name' , 'email', 'phone');
+
 
         return view('front-end/listing-detail', compact('listing','user'));
     }

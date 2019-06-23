@@ -6,33 +6,22 @@
 <div class="props-search-menu">
 
 
-    <div class="top-row row">
+    <div class="top-row">
 
-       <div class="container">
+      <div class="container">
 
-        <div class="col-xs-4">
+        <div class="col-md-12">
 
-           <h2>Properties</h2>
-
-
+          <h3>Listings for Sale or Rent </h3>
 
         </div>
 
-        <div class=".col-xs-4 .col-xs-offset-4">
-
-          <ol class="breadcrumb pull-right">
-            <li><a href="#">Home</a></li>
-            <li class="active">Listings Results</li>
-          </ol>
-
-        </div>
-
-       </div>
+      </div>
 
     </div>
 
 
-    <div class="bottom-row row">
+    <div class="bottom-row">
 
       <form action="/multisearch" method="GET" role="search">
         {{ csrf_field() }}
@@ -47,32 +36,33 @@
          </select>
 
 
-         <select class="form-control listings-drop" name="min">
+        <select class="form-control" name="min">
 
-           <option value="" disabled selected>MIN PRICE</option>
-           <option value="100000">100,000</option>
-           <option value="150000">100,000</option>
-           <option value="200000">200,000</option>
-           <option value="250000">250,000</option>
-           <option value="300000">300,000</option>
-           <option value="350000">350,000</option>
+            <option value="" disabled selected>MIN PRICE</option>
+            <option value="100000">100,000</option>
+            <option value="150000">100,000</option>
+            <option value="200000">200,000</option>
+            <option value="250000">250,000</option>
+            <option value="300000">300,000</option>
+            <option value="350000">350,000</option>
 
-         </select>
+        </select>
 
 
-         <select class="form-control listings-drop" name="max">
+         <select class="form-control" name="max">
 
-           <option value="" disabled selected>MAX PRICE</option>
-           <option value="100000">100,000</option>
-           <option value="150000">100,000</option>
-           <option value="200000">200,000</option>
-           <option value="250000">250,000</option>
-           <option value="300000">300,000</option>
-           <option value="350000">350,000</option>
-           <option value="400000">400,000</option>
-         </select>
+            <option value="" disabled selected>MAX PRICE</option>
+            <option value="100000">100,000</option>
+            <option value="150000">100,000</option>
+            <option value="200000">200,000</option>
+            <option value="250000">250,000</option>
+            <option value="300000">300,000</option>
+            <option value="350000">350,000</option>
+            <option value="400000">400,000</option>
 
-         <select class="form-control listings-drop" name="beds">
+        </select>
+
+         <select class="form-control" name="beds">
 
            <option value="" disabled selected>MIN BEDS</option>
            <option value="1">1</option>
@@ -85,7 +75,7 @@
 
          </select>
 
-         <select class="form-control listings-drop" name="baths">
+         <select class="form-control" name="baths">
 
            <option value="" disabled selected>MIN BATHS</option>
            <option value="1">1</option>
@@ -98,7 +88,7 @@
 
          </select>
 
-    <button type="submit" class="btn btn-off-white">SEARCH NOW</button>
+         <button type="submit" class="btn btn-off-white">SEARCH</button>
 
        </div>
 
@@ -115,70 +105,92 @@
 
   <div id="listings">
 
-			<div class="container">
+        <div class="container">
 
-        @if(isset($details))
+            <div class="row">
 
-        <h3>{{ $details->total() }}  Result(s) For: {{ request()->input('q') }}</h3>
+                  @if(isset($details))
 
-				<div class="row">
 
+                  <div class="headline col-md-4">
+
+                      <h2>
+                        TOTAL LISTINGS: <span class="countgreen">{{ $details->total() }} </span>
+                      </h2>
+                      <h3>
+                        Result(s) For: <span class="countgreen">{{ request()->input('q') }}</span>
+                      </h3>
+
+                  </div>
+
+            </div>
+
+            <div class="row">
 
               @foreach($details as $listing)
 
-              <div class="col-md-4 listing-card">
+                    <div class="card col-md-4">
+
+                          <div class="card-img-container">
+
+                            <img class="card-img-top" src="{{$listing->fullpic? URL::to($listing->fullpic->file) : 'http://placehold.it/400x400'}}"
+                                  alt="Card image cap">
+
+                          </div>
+
+                          <span class="forsale">{{$listing->category->name}}</span>
+
+                          <div class="card-body"> 
+
+                              <h4>{{$listing->street}}</h4>
+                              <h5>
+                                {{$listing->city ? $listing->city->name : 'Listing has no city'}},
+                                {{$listing->state ? $listing->state->name : 'Listing has no state'}}
+                              </h5>
+
+                              <div class="col-md-12">
+                                  <span class="price">${{$listing->price}}</span>
+                              </div>
+
+                              <div class="col-md-12">
+
+                                  <ul class="listInfo">
+                                    <li>BEDS: <span class="listnumber">{{$listing->beds}}</span></li>
+                                    <li>BATHS: <span class="listnumber">{{$listing->baths}}</span></li>
+                                    <li>SQFT: <span class="listnumber">{{$listing->sqft}}</span></li>
+                                  </ul>
+
+                              </div>
+
+                              <a href="{{route('listings.detail', $listing->id)}}" class="btn btn-green">Read More</a>
+
+                          </div>
+
+                    </div>
+
+                  @endforeach
+
+              </div> <!-- ROW -->
 
 
-                <h6>{{$listing->category->name}}</h6>
+          
+            <div class="row">
 
-                <div class="card-img-container">
+                {{ $details->appends(Request::except('page'))->links()}}
 
-                  <!-- <img src="images/houses/pexels-photo-259600.jpeg" alt="" class="img-responsive"> -->
+                  @elseif(isset($message))
 
-                  <img src="{{$listing->fullpic? URL::to($listing->fullpic->file) : 'http://placehold.it/400x400'}}">
+                  <div class="noDetails">
+                      <p>{{ $message }}</p>
+                  </div>
 
-                </div>
+                  @endif
 
-                <h3>{{$listing->street}}</h3>
-                <h4>
-                  {{$listing->city ? $listing->city->name : 'Listing has no city'}},
-                  {{$listing->state ? $listing->state->name : 'Listing has no state'}}
-                </h4>
-
-                <h5>${{$listing->price}}</h5>
-
-                <ul class="prop-attr">
-                  <li>BEDS: <span class="price"> {{$listing->beds}}</span></li>
-                  <li>BATHS: <span class="price"> {{$listing->baths}}</span></li>
-                  <li>SQFT: <span class="price"> {{$listing->sqft}}</span></li>
-                </ul>
+            </div>
+                  
 
 
-
-                    <button type="button" class="btn btn-read-more"><a href="{{route('listings.detail',$listing->id)}}">READ MORE</a></button>
-
-
-
-                 </div>
-
-                 @endforeach
-
-                 </div> <!-- ROW -->
-
-                 {{ $details->appends(Request::except('page'))->links()}}
-
-                 @elseif(isset($message))
-
-                 <div class="noDetails">
-                   	<p>{{ $message }}</p>
-                 </div>
-
-
-
-             @endif
-
-
-			</div>
+        </div>
 
 	</div>
 

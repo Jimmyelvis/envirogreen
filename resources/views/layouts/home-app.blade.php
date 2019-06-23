@@ -14,18 +14,17 @@
   <link rel="stylesheet" href="fonts/fontawesome-free-5.0.1/web-fonts-with-css/css/fontawesome-all.css">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="<link rel=" stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <link rel=" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.typekit.net/usb8qya.css">
   <link href="css/styles.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
+  </script> -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
   </script>
@@ -38,79 +37,153 @@
   <style>
     .navbar {
       position: relative;
-      min-height: 50px;
-      margin-bottom: 20px;
+      margin-top: 0;
       border: 1px solid transparent;
+      background-color: rgba(255, 255, 255, 0.90);
+      height: 110px;
     }
 
     /*//////////////////////////////////////JUMBOTRON///////////////////////*/
 
     .jumbotron {
-      background-image: url(images/full-house-pic-3.jpg);
-      margin-top: -135px;
-      padding-top: 153px;
+      background-image: url(images/full-house-pic-4.jpg);
+      margin-top: -109px;
+      padding-top: 245px;
       padding-bottom: 13%;
       background-size: cover;
+      background-position-y: -30px;
+      background-repeat: no-repeat;
     }
 
-    .jumbotron h1,
-    .jumbotron h3 {
-      text-shadow: 1px 1px 1px #000000;
+    .jumbotron h1, .jumbotron h3 {
+      text-shadow: 2px 2px 4px #726859;
     }
 
     .jumbotron h1 {
-      color: #272727;
-      font-size: 53px;
+      color: #ffffff;
+      font-size: 400%;
+      text-align: center;
     }
 
     .jumbotron h3 {
       color: rgba(255, 255, 255, 1.00);
-      font-size: 28px;
-    }
+      font-size: 150%;
+      text-align: center;
+      font-family: Lato;
+      margin: 20px auto;
+      width: 60%;
+  }
 
     .ui-helper-hidden-accessible {
       display: none;
     }
 
-    @media (max-width: 1100px) {
+    @media(max-width:990px){
+
+      .jumbotron {
+        margin-top: -109px;
+        padding-top: 210px;
+        padding-bottom: 3%;
+        background-size: cover;
+        background-position-x: 50%;
+        background-position-y: -30px;
+        background-color: rgba(255, 255, 255, 0);
+      }
 
       .jumbotron h1 {
-        font-size: 280%;
-      }
-
-      .jumbotron h3 {
-        font-size: 180%;
-      }
-
-    }
-
-    @media (max-width: 780px) {
-
-      .jumbotron h1 {
-        font-size: 240%;
-      }
-
-      .jumbotron h3 {
-        font-size: 140%;
-      }
-
-    }
-
-    @media (max-width: 500px) {
-
-      .jumbotron h1 {
-        font-size: 200%;
+        color: #ffffff;
+        font-size: 300%;
         text-align: center;
       }
 
       .jumbotron h3 {
-        font-size: 140%;
-        width: 90%;
-        margin: 20px auto 0 auto;
+        color: rgba(255, 255, 255, 1.00);
+        font-size: 150%;
+        text-align: center;
+        font-family: Lato;
+        margin: 20px auto;
+        width: 80%;
+      }
+
+    }
+
+    @media(max-width:767px){
+
+      .jumbotron h1 {
+        color: #ffffff;
+        font-size: 275%;
         text-align: center;
       }
 
     }
+
+    @media(max-width:600px){
+
+      .jumbotron {
+        margin-top: -80px;
+        padding-top: 138px;
+        padding-bottom: 0%;
+        height: 600px;
+        background-size: cover;
+      }
+
+      .jumbotron h1 {
+          color: #ffffff;
+          font-size: 220%;
+          text-align: center;
+      }
+
+      .jumbotron h3 {
+          color: rgba(255, 255, 255, 1.00);
+          font-size: 125%;
+          text-align: center;
+          font-family: Lato;
+          margin: 20px auto;
+          width: 80%;
+      }
+
+      .navbar {
+        height: 80px;
+      }
+
+
+    }
+
+    @media(max-width:500px){
+
+      .jumbotron h1 {
+        color: #ffffff;
+        font-size: 190%;
+        text-align: center;
+      }
+
+      .jumbotron h3 {
+        color: rgba(255, 255, 255, 1.00);
+        font-size: 115%;
+        text-align: center;
+        font-family: Lato;
+        margin: 20px auto;
+        width: 80%;
+      }
+
+    }
+
+     @media(max-width:500px){
+
+      .jumbotron h1 {
+        font-size: 150%;
+      }
+
+      .jumbotron h3 {
+        font-size: 90%;
+        width: 100%;
+      }
+
+    }
+
+
+
+
   </style>
 
 
@@ -119,19 +192,15 @@
 
 <body id="app-layout">
 
-  <div class="topnav">
-
-    <ul class="top-nav-list">
-      <li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Springfield, MA</li>
-      <li><i class="fas fa-phone-square"></i> 1-800-669-8869</li>
-      <li><i class="fas fa-envelope-square"></i> mail@envirogreen.com</li>
-    </ul>
-
-  </div>
-
-  <nav class="navbar navbar-default">
 
 
+  <ul class="topnav">
+    <li><i class="fas fa-location-arrow"></i> 1969 Sunnydale Street Springfield, MA</li>
+    <li><i class="fas fa-phone-square"></i> 1-800-669-8869</li>
+    <li><i class="fas fa-envelope-square"></i> mail@envirogreen.com</li>
+  </ul>
+
+  <div class="navbar navbar-default">
 
     <div class="container">
 
@@ -166,8 +235,10 @@
 
     </div>
 
+  </div>
 
-  </nav>
+
+
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
@@ -189,7 +260,7 @@
 
 
 
-  <footer>
+  <!-- <footer>
 
 
     <div class="top">
@@ -234,7 +305,7 @@
 
     </div>
 
-  </footer>
+  </footer> -->
 
   <script src="js/slide-menu.js"></script>
 

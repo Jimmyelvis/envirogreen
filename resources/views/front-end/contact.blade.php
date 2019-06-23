@@ -3,46 +3,29 @@
 @section('content')
 
 
-  <div class="bread-crumb-menu">
+  
 
-    <div class="container">
+  <div id="contact">
 
-      <div class="row">
+		<div class="header headerStaff">
 
-        <div class="col-md-4">
+				<img src="{{ asset('images/detail.jpg') }}">
 
-           <h2>Contact Us</h2>
+				<div class="overlay"></div>
+				<h2>CONTACT US</h2>
 
-        </div>
-
-        <div class=".col-md-4 .col-md-offset-4">
-
-          <ol class="breadcrumb pull-right">
-            <li><a href="#">Home</a></li>
-            <li class="active">Contact Us</li>
-          </ol>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div id="team-detail">
+		</div>
 
 	<div class="container">
 
 
-
-
 		<div class="form row">
 
+			<div class="col-md-12">
 
-			<h4>Get in Touch with us.</h4>
+				<h4>Get in Touch with us.</h4>
 
-
+			</div>
 
 			<div class="col-md-6">
 
@@ -95,7 +78,7 @@
 					<div class="col-sm-12">
 					  <textarea class="form-control" rows="3"></textarea>
 
-		              <button type="submit" class="btn btn-success pull-right">Send Message</button>
+		              <button type="submit" class="btn btn-green pull-right">Send Message</button>
 
 					</div>
 				 </div>
