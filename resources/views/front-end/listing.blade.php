@@ -12,7 +12,7 @@
 
           <div class="col-md-12">
 
-            <h3>Listings for Sale or Rent </h3>
+            <h3>Listings for Sale</h3>
 
           </div>
 
