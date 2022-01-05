@@ -1,0 +1,46 @@
+/*
+    Contact
+*/
+
+
+#contact .header {
+  background-color: blue;
+  height: 240px;
+  margin-top: 0;
+  position: relative;
+}
+
+#contact .form h4 {
+  color: #1cc198;
+  font-size: 250%;
+  text-align: center;
+  margin: 50px auto;
+}
+
+@media(max-width:767px) {
+
+  .header h2 {
+    font-size: 280%;
+  }
+
+  #contact .form h4 {
+    font-size: 200%;
+  }
+
+}
+
+@media(max-width:500px) {
+
+  .header h2 {
+    font-size: 200%;
+  }
+
+  #contact .form h4 {
+    font-size: 165%;
+  }
+
+  #contact .header {
+    height: 180px;
+  }
+
+}

@@ -1,0 +1,52 @@
+/*
+    Buttons
+*/
+
+.btn-green {
+  padding: 14px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 100%;
+  letter-spacing: 1px;
+  background: rgba(30, 191, 151, 1);
+  background: -moz-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(30, 191, 151, 1)), color-stop(100%, rgba(21, 133, 106, 1)));
+  background: -webkit-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+  background: -o-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+  background: linear-gradient(to bottom, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ebf97', endColorstr='#15856a', GradientType=0);
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.22);
+}
+
+
+.btn-off-white {
+  background-color: rgb(250, 241, 230);
+  color: #1bc197;
+  border-radius: 0;
+  padding: 0.335rem 1.05rem;
+  border: 1px solid #fff;
+  font-weight: bold;
+  transition: 500ms all linear;
+  font-size: 1rem;
+}
+
+.btn-off-white:hover,
+.btn-off-white:focus,
+.btn-off-white:active,
+.btn-off-white.active,
+.open>.dropdown-toggle.btn-off-white {
+  background: #fff;
+}
+
+.btn-off-white:active,
+.btn-off-white.active {
+  background: #007299;
+  box-shadow: none;
+}

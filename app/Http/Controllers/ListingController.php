@@ -200,9 +200,7 @@ class ListingController extends Controller
           // echo "  CITY SET";
           $listing = Listing::where ( 'city_id', '=',  $loc )->paginate($pageinate);
         }
-
-
-
+      
 
         if (count ( $listing ) > 0)
           return view ( 'front-end/multiresults', compact('cities'))->withDetails ( $listing )->withQuery ( $min, $max, $loc, $beds, $baths );

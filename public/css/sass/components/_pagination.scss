@@ -1,0 +1,37 @@
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  border-color: #0cac8a;
+  background: rgba(30, 191, 151, 1);
+  background: -moz-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(17, 143, 112, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(30, 191, 151, 1)), color-stop(100%, rgba(17, 143, 112, 1)));
+  background: -webkit-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(17, 143, 112, 1) 100%);
+  background: -o-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(17, 143, 112, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(17, 143, 112, 1) 100%);
+  background: linear-gradient(to bottom, rgba(30, 191, 151, 1) 0%, rgba(17, 143, 112, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ebf97', endColorstr='#118f70', GradientType=0);
+}
+
+.pagination>li>a,
+.pagination>li>span {
+  position: relative;
+  float: left;
+  padding: 8px 16px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #0cac8a;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.09);
+  border: 1px solid rgb(231, 228, 208);
+  margin-top: 50px;
+}

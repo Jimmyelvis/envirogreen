@@ -1,0 +1,269 @@
+/*
+    About Page
+*/
+
+
+#about-main {
+  
+  p {
+    // padding-bottom: 25px;
+  }
+  
+  .header {
+    background-color: blue;
+    height: 280px;
+    margin-top: 0;
+    position: relative;
+
+    h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      font-size: 360%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      letter-spacing: 2px;
+    }
+
+  }
+  
+  
+  .whoweare {
+    margin: 80px auto;
+    padding: 3%;
+    background-color: rgba(255, 255, 255, 0.48);
+
+    .left
+      h3 {
+        color: #1bc197;
+      }
+      
+      p {
+        margin: 20px 0;
+      }
+    }
+
+    .ourleaders {
+      margin: 0;
+      padding: 50px 0;
+      background: rgba(255, 255, 247, 1);
+      background: -moz-linear-gradient(top, rgba(255, 255, 247, 1) 0%, rgba(240, 240, 200, 1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 247, 1)), color-stop(100%, rgba(240, 240, 200, 1)));
+      background: -webkit-linear-gradient(top, rgba(255, 255, 247, 1) 0%, rgba(240, 240, 200, 1) 100%);
+      background: -o-linear-gradient(top, rgba(255, 255, 247, 1) 0%, rgba(240, 240, 200, 1) 100%);
+      background: -ms-linear-gradient(top, rgba(255, 255, 247, 1) 0%, rgba(240, 240, 200, 1) 100%);
+      background: linear-gradient(to bottom, rgba(255, 254, 247, 0.63) 0%, rgba(232, 218, 207, 0.6) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff7', endColorstr='#f0f0c8', GradientType=0);
+      border-bottom: 3px solid #fff;
+      border-top: 3px solid #fff;
+
+       .card {
+         border: 0px solid rgba(0, 0, 0, .125);
+         border-radius: 0;
+         flex: 0 0 40%;
+         max-width: 40%;
+         margin: 20px 5%;
+         padding: 0;
+
+         .card-img-top {
+           width: 100%;
+           border-top-left-radius: 0;
+           border-top-right-radius: 0;
+           height: 380px;
+           object-fit: cover;
+         }
+  
+         .card-title {
+           color: #1bc197;
+           font-size: 140%;
+           text-align: center;
+         }
+  
+         p {
+           width: 80%;
+           margin: 0 auto;
+         }
+       }
+
+    }
+
+
+  }
+  
+  
+  
+  .headline {
+    border-left: #1bae88 solid 4px;
+    padding-left: 2%;
+    margin-left: 5%;
+    height: 62px;
+    overflow: hidden;
+  }
+  
+  .headline h3 {
+    color: #1bae87;
+    font-size: 120%;
+  }
+  
+  .headline h2 {
+    font-size: 180%;
+    letter-spacing: 2px;
+  }
+  
+ 
+  
+  .listedSlogan {
+    margin: 0;
+    padding: 125px 0px;
+    position: relative;
+    text-align: center;
+    background: #59aee9 url(../images/playroom.jpg) no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff;
+  }
+  
+  .listedSlogan h4 {
+    font-family: 'Clear Sans';
+    font-size: 250%;
+    font-weight: 300;
+  }
+  
+  .listedSlogan .listedNumber {
+    font-family: fira-sans, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #1bc197;
+  }
+  
+  .listedSlogan .imgoverlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .btnflatgreen {
+    background: rgba(30, 191, 151, 1);
+    background: -moz-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(30, 191, 151, 1)), color-stop(100%, rgba(21, 133, 106, 1)));
+    background: -webkit-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+    background: -o-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+    background: linear-gradient(to bottom, rgba(30, 191, 151, 1) 0%, rgba(21, 133, 106, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ebf97', endColorstr='#15856a', GradientType=0);
+    border: 0px solid rgba(255, 255, 255, 0);
+    font-size: 1.7rem;
+    line-height: 1.5;
+    color: #fff;
+    font-family: fira-sans, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding: 0.775rem 1.75rem;
+  }
+
+
+
+
+
+
+@media(max-width:1200px) {
+
+  #about-main .header h2 {
+    font-size: 280%;
+  }
+
+}
+
+@media(max-width:990px) {
+
+  #about-main .left {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  #about-main .whoweare .left h3 {
+    text-align: center;
+  }
+
+  #about-main .whoweare .left p {
+    margin: 20px 0;
+    font-size: 100%;
+  }
+
+  #about-main .headline {
+    border-left: #1bae88 solid 4px;
+    padding-left: 2%;
+    margin-left: 1%;
+    height: 55px;
+    overflow: hidden;
+  }
+
+  #about-main .headline h2 {
+    font-size: 150%;
+    letter-spacing: 2px;
+  }
+
+  #about-main .headline h3 {
+    color: #1bae87;
+    font-size: 105%;
+  }
+
+  #about-main .ourleaders .card {
+    border: 0px solid rgba(0, 0, 0, .125);
+    border-radius: 0;
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin: 40px 1%;
+    padding: 0;
+  }
+
+  #about-main .ourleaders .card p {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 100%;
+  }
+
+}
+
+@media(max-width:767px) {
+
+  #about-main .ourleaders .card {
+    border: 0px solid rgba(0, 0, 0, .125);
+    border-radius: 0;
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin: 40px auto;
+    padding: 0;
+  }
+
+  #about-main .headline {
+    margin-left: 12%;
+  }
+
+  #about-main .header {
+    background-color: blue;
+    height: 220px;
+    margin-top: 0;
+    position: relative;
+  }
+
+  #about-main .header h2 {
+    font-size: 230%;
+    text-align: center;
+  }
+
+}
+
+@media(max-width:500px) {
+
+  #about-main .ourleaders .card {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
+
+}

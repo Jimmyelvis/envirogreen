@@ -27,7 +27,7 @@
 
             <div class="container">
 
-                <select name="loc" class="form-control">
+                <select name="loc" class="form-control" id="cityOptions">
                   <option value="" selected>SELECT A CITY</option>
                   @foreach($cities as $cityId => $cityName)
                   <option value="{{ $cityId }}">{{ $cityName }}</option>
@@ -85,7 +85,7 @@
 
                 </select>
 
-              <button type="submit" class="btn btn-off-white">SEARCH</button>
+              <button type="submit" class="btn btn-off-white submitSearch">SEARCH</button>
 
 
 

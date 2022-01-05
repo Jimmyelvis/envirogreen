@@ -1,0 +1,170 @@
+/*
+    Staff Detail Page
+*/
+
+
+#team-detail {
+  padding: 48px 0;
+  
+  .row {
+    margin-bottom: 50px;
+  }
+  
+  .list-full-pic {
+    width: 100%;
+    height: 420px;
+    border-radius: 3px;
+    object-fit: cover;
+    margin: 50px auto;
+    object-position: 0 50%;
+
+    @media (max-width:767px) {
+      height: 360px;
+    }
+
+    @media (max-width:575px) {
+      height: 300px;
+    }
+    }
+  }
+
+  .header {
+
+    @media (max-width:767px) {
+      background-color: blue;
+      height: 200px;
+      margin-top: -48px;
+      position: relative;
+    }
+
+    @media (max-width:767px) {
+      height: 170px;
+    }
+    
+    h2 {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      color: #fff;
+      font-size: 360%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+
+      @media (max-width:767px) {
+        font-size: 275%;
+      }
+
+      @media (max-width:575px) {
+        font-size: 210%;
+      }
+
+      @media (max-width:450px) {
+        font-size: 170%;
+      }
+    }
+    
+    h4 {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      color: #fff;
+      font-size: 260%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-family: 'Clear Sans';
+      font-weight: 400;
+
+      @media (max-width:767px) {
+        font-size: 200%;
+      }
+
+      @media (max-width:575px) {
+        font-size: 160%;
+      }
+
+      @media (max-width:450px) {
+        font-size: 135%;
+      }
+    }
+    
+  }
+
+  .staffInfo {
+
+    @media (max-width:767px) {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .fas {
+      padding-right: 10px;
+      color: #1cc198;
+      font-size: 110%;
+    }
+    
+    h4 {
+      font-family: 'Clear Sans';
+      font-weight: 500;
+    }
+    
+    p {
+      margin-top: 20px;
+      font-size: 110%;
+      font-weight: bold;
+    }
+
+    h3 {
+      color: #1cc198;
+      font-size: 220%;
+    }
+    
+
+  }
+
+  .staffBio {
+
+    @media (max-width:767px) {
+      padding: 15px 0;
+    }
+
+    h3 {
+      color: #1cc198;
+      font-size: 220%;
+
+      @media (max-width:767px) {
+        font-size: 200%;
+      }
+    }
+
+    p {
+      @media (max-width:767px) {
+         margin-top: 35px;
+      }
+
+      @media (max-width:575px) {
+        width: 80%;
+        margin: 35px auto;
+      }
+    }
+  }
+
+  .picmember {
+    width: 90%;
+    margin-right: 70px;
+  }
+  
+  .form {
+
+    h4 {
+      margin-top: -10px;
+
+       @media (max-width:575px) {
+         font-size: 170%;
+         margin: 30px auto;
+         text-align: center;
+       }
+    }
+  }
+  
