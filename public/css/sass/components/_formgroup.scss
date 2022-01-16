@@ -9,40 +9,28 @@
 
   h4 {
     color: #1cc198;
-    font-size: 30px;
-    margin-bottom: 40px;
-    margin-left: 20px;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    margin-left: 2rem;
   }
 
   .control-label {
     margin-left: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 600;
   }
 
   .form-control {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
     box-shadow: inset 0 1px 6px rgba(160, 158, 175, 0.6);
-    height: 40px;
-    padding: 6px 12px;
+    height: 4rem;
+    padding: .6rem 1.2rem;
     border: 2px solid rgba(152, 119, 35, 0.15);
     border-radius: 4px;
   }
 
-  .col-md-12 .form-control {
-    height: 200px;
-  }
-
-  .col-md-12 .btn-success {
-    padding: 14px 46px;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    font-weight: bold;
-    color: #fff;
-    font-size: 100%;
-  }
   
   .form-control:focus {
     border: 1px solid #1cc198;

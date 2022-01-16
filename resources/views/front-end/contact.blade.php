@@ -1,99 +1,59 @@
-@extends('layouts.app')
+@extends('layouts.home-app')
 
 @section('content')
 
 
-  
 
-  <div id="contact">
 
-		<div class="header headerStaff">
+<div id="contact">
 
-				<img src="{{ asset('images/detail.jpg') }}">
+	<div class="header headerStaff">
 
-				<div class="overlay"></div>
-				<h2>CONTACT US</h2>
+		<img src="{{ asset('images/detail.jpg') }}">
 
-		</div>
+		<div class="overlay"></div>
+		<h2>CONTACT US</h2>
+
+	</div>
 
 	<div class="container">
 
 
-		<div class="form row">
+		<div class="form">
 
-			<div class="col-md-12">
+			<h4>Get in Touch with us.</h4>
 
-				<h4>Get in Touch with us.</h4>
-
+			<div class="form-group">
+				<label for="inputEmail3" class="control-label">Name*</label>
+				<input type="email" class="form-control" id="inputEmail3" placeholder="Name">
 			</div>
 
-			<div class="col-md-6">
-
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-8 control-label">Name*</label>
-					<div class="col-sm-12">
-					  <input type="email" class="form-control" id="inputEmail3" placeholder="Name">
-					</div>
-				  </div>
-
+			<div class="form-group">
+				<label for="inputEmail3" class="control-label">Email*</label>
+				<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
 			</div>
 
-			<div class="col-md-6">
-
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-8 control-label">Email*</label>
-					<div class="col-sm-12">
-					  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-					</div>
-				  </div>
-
+			<div class="form-group">
+				<label for="inputEmail3" class="control-label">Phone Number*</label>
+				<input type="email" class="form-control" id="inputEmail3" placeholder="555-5555">
 			</div>
 
-			<div class="col-md-6">
-
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-8 control-label">Phone Number*</label>
-					<div class="col-sm-12">
-					  <input type="email" class="form-control" id="inputEmail3" placeholder="555-5555">
-					</div>
-				  </div>
-
+			<div class="form-group">
+				<label for="inputEmail3" class="control-label">Subject*</label>
+				<input type="email" class="form-control" id="inputEmail3" placeholder="Subject">
 			</div>
 
-			<div class="col-md-6">
-
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-8 control-label">Subject*</label>
-					<div class="col-sm-12">
-					  <input type="email" class="form-control" id="inputEmail3" placeholder="Subject">
-					</div>
-				  </div>
-
+			<div class="form-group textarea">
+				<label for="inputEmail3" class="control-label">How Can I Help*</label>
+				<textarea class="form-control" rows="20"></textarea>
+				<button type="submit" class="btn btn-green">Send Message</button>
 			</div>
-
-			<div class="col-md-12">
-
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-8 control-label">How Can We Help*</label>
-					<div class="col-sm-12">
-					  <textarea class="form-control" rows="3"></textarea>
-
-		              <button type="submit" class="btn btn-green pull-right">Send Message</button>
-
-					</div>
-				 </div>
-
-
-
-			</div>
-
-
-		</div>
-
 
 		</div>
 
 	</div>
+
+</div>
 
 
 @endsection

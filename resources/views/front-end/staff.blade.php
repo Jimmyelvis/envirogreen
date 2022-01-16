@@ -1,68 +1,58 @@
-@extends('layouts.app')
+@extends('layouts.home-app')
 
 @section('content')
 
 
 
-<div id="team-listing">
+    <div id="team-listing">
 
-	<div class="header headerStaff">
+        <div class="header">
 
-			<img  src="{{ asset('images/pexels-photo-280232.jpg') }}">
-                            
-			<div class="overlay"></div>
-			<h2>Our Staff</h2>
+            <img src="{{ asset('images/pexels-photo-280232.jpg') }}">
 
-	</div>
+            <div class="overlay"></div>
+            <h2>Our Staff</h2>
 
-	<div class="container">
+        </div>
 
+        <div class="container">
 
+            @if ($users)
 
-		<div class="row">
+                @foreach ($users as $user)
 
-			@if($users)
+                    <div class="staff-member-entry">
 
-				@foreach($users as $user)
+                        <div class="user-pic">
 
-					<div class="col-md-6 col-sm-12 staff-member-entry">
+                            <img src="{{ $user->photo ? URL::to($user->photo->file) : 'http://placehold.it/400x400' }}"
+                                class="picmember" alt="">
 
-						<div class="user-pic">
+                        </div>
 
-								<img src="{{$user->photo? URL::to($user->photo->file) : 'http://placehold.it/400x400'}}" class="picmember" alt="">
+                        <div class="user-info">
 
-						</div>
+                            <h3><a href="{{ route('staff.detail', $user->id) }}">{{ $user->name }}</a></h3>
+                            <h4>{{ $user->position ? $user->position->name : 'User has no position' }}</h4>
 
-						<div class="user-info">
+                            <p>{{ str_limit($user->bio, 100, '...') }}</p>
 
-							<h3><a href="{{route('staff.detail', $user->id)}}">{{$user->name}}</a></h3>
-							<h4>{{$user->position ? $user->position->name : 'User has no position'}}</h4>
+                        </div>
 
-							<p>{{ str_limit($user->bio, 100, '...') }}</p>
+                    </div>
 
-						</div>
+                @endforeach
 
+            @endif
 
-						<div class="clearfix"></div>
-
-					</div>
-
-					@endforeach
-
-			@endif
+        </div>
 
 
-
-			</div>
-
-		</div>
-
-
-	</div>
+    </div>
 
 
 
-</div>
+    </div>
 
 
 @endsection

@@ -1,34 +1,66 @@
-
 .header {
   background-color: blue;
-  height: 240px;
-  margin-top: -48px;
+  height: 50rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5rem;
+
+  @include respond(bp-small) {
+    height: 40.2rem;
+  }
+
+  @include respond(bp-tiny) {
+    height: 30.9rem;
+  }
+
 
   .overlay {
     position: absolute;
-    background-color: rgba(25, 53, 72, 0.75);
+    background-color: rgba(7, 20, 28, 0.6);
     width: 100%;
     height: 100%;
     top: 0;
+    z-index: 10;
   }
-
-  h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-    font-size: 360%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
 
   img {
     height: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
+
+  .container {
+    position: relative;
+    z-index: 200;
+  }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      position: relative;
+      z-index: 300;
+      color: $color-offwhite;
+    }
+
+    h2 {
+      font-size: 7rem;
+
+      @include respond(bp-small) {
+        font-size: 6rem;
+      }
+
+      @include respond(bp-tiny) {
+        font-size: 4.5rem;
+      }
+
+    }
+
 
 }

@@ -7,14 +7,19 @@
 const CityOptions = document.querySelector("#cityOptions");
 const SubmitSearch = document.querySelector(".submitSearch");
 
-console.log(CityOptions);
 
-SubmitSearch.addEventListener("click", (e) => {
+if (SubmitSearch) {
+
+  SubmitSearch.addEventListener("click", (e) => {
+
+    if (CityOptions) {
+
+      if (CityOptions.value === '') {
+        e.preventDefault()
+        alert('you must select something')
+      } 
+    }
   
-  if (CityOptions.value === '') {
-    e.preventDefault()
-    alert('you must select something')
-  } 
+  });
+}
 
-
-});

@@ -1,192 +1,193 @@
-@extends('layouts.app')
+@extends('layouts.home-app')
 
 @section('content')
 
 
-<div class="props-search-menu">
 
+    <div id="listings">
 
-    <div class="top-row">
-
-        <div class="container">
-
-          <div class="col-md-12">
-
-            <h3>Listings for Sale</h3>
-
-          </div>
-
-        </div>
-
-    </div>
-
-
-      <div class="bottom-row">
-
-        {!! Form::open(['method'=>'GET', 'action'=> 'ListingController@multiresults','role'=>'search']) !!}
+        <div class="header">
 
             <div class="container">
 
-                <select name="loc" class="form-control" id="cityOptions">
-                  <option value="" selected>SELECT A CITY</option>
-                  @foreach($cities as $cityId => $cityName)
-                  <option value="{{ $cityId }}">{{ $cityName }}</option>
-                  @endforeach
-                </select>
+                <div class="props-search-menu">
 
-                <select class="form-control" name="min">
+                    {!! Form::open(['method' => 'GET', 'action' => 'ListingController@multiresults', 'role' => 'search']) !!}
 
-                  <option value="" disabled selected>MIN PRICE</option>
-                  <option value="100000">100,000</option>
-                  <option value="150000">100,000</option>
-                  <option value="200000">200,000</option>
-                  <option value="250000">250,000</option>
-                  <option value="300000">300,000</option>
-                  <option value="350000">350,000</option>
+                    <div class="selector">
+                        <select name="loc" class="form-control" id="cityOptions">
+                            <option value="" selected>SELECT A CITY</option>
+                            @foreach ($cities as $cityId => $cityName)
+                                <option value="{{ $cityId }}">{{ $cityName }}</option>
+                            @endforeach
+                        </select>
+                        <div class="custom-arrow"></div>
+                    </div>
 
-                </select>
+                    <div class="selector">
+                        <select class="form-control" name="min">
 
-                <select class="form-control" name="max">
+                            <option value="" disabled selected>MIN PRICE</option>
+                            <option value="100000">100,000</option>
+                            <option value="150000">100,000</option>
+                            <option value="200000">200,000</option>
+                            <option value="250000">250,000</option>
+                            <option value="300000">300,000</option>
+                            <option value="350000">350,000</option>
 
-                  <option value="" disabled selected>MAX PRICE</option>
-                  <option value="100000">100,000</option>
-                  <option value="150000">100,000</option>
-                  <option value="200000">200,000</option>
-                  <option value="250000">250,000</option>
-                  <option value="300000">300,000</option>
-                  <option value="350000">350,000</option>
-                  <option value="400000">400,000</option>
+                        </select>
+                        <div class="custom-arrow"></div>
+                    </div>
 
-                </select>
+                    <div class="selector">
+                        <select class="form-control" name="max">
 
-                <select class="form-control" name="beds">
+                            <option value="" disabled selected>MAX PRICE</option>
+                            <option value="100000">100,000</option>
+                            <option value="150000">100,000</option>
+                            <option value="200000">200,000</option>
+                            <option value="250000">250,000</option>
+                            <option value="300000">300,000</option>
+                            <option value="350000">350,000</option>
+                            <option value="400000">400,000</option>
 
-                  <option value="" disabled selected>MIN BEDS</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
+                        </select>
+                        <div class="custom-arrow"></div>
+                    </div>
 
-                </select>
-
-                <select class="form-control" name="baths">
-
-                  <option value="" disabled selected>MIN BATHS</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-
-                </select>
-
-              <button type="submit" class="btn btn-off-white submitSearch">SEARCH</button>
-
+                    <div class="selector">
+                        <select class="form-control" name="beds">
+                            <option value="" disabled selected>MIN BEDS</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        <div class="custom-arrow"></div>
+                    </div>
 
 
-            </div>
+                    <div class="selector">
+                        <select class="form-control" name="baths">
+                            <option value="" disabled selected>MIN BATHS</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        <div class="custom-arrow"></div>
+                    </div>
 
+                    <button type="submit" class="btn btn-green submitSearch">SEARCH</button>
 
-            
-        {!! Form::close() !!}
+                    {!! Form::close() !!}
 
-
-
-      </div>
-
-
-  </div>
-
-  <div id="listings">
-
-			<div class="container">
-
-        @if($listings)
-
-            <div class="row">
-
-              <div class="headline col-md-4">
-                  <h2>TOTAL LISTINGS: <span class="countgreen">{{ $listings->total() }}</span></h2>
-                  <h3>In this page: <span class="countgreen">{{ $listings->count() }}</span> Listings</h3>
-              </div>
-                
-
-              <!-- <h3>TOTAL LISTINGS: <span class="countgreen">{{ $listings->total() }}</span> </h3>
-              <br>
-              <h4>In this page: <span class="countgreen">{{ $listings->count() }}</span> Listings</h4> -->
+                </div>
 
             </div>
 
-            <div class="row">
 
-               @foreach($listings as $listing)
+            <div class="overlay"></div>
+            <img src="{{ asset('images/real-estate-house-with-for-sale-sign-2021-08-29-03-29-26-utc.jpg') }}">
 
-                  <div class="card col-md-4">
 
-                        <div class="card-img-container">
-                          <img class="card-img-top" src="{{$listing->fullpic? URL::to($listing->fullpic->file) : 'http://placehold.it/400x400'}}"
-                            alt="Card image cap"
-                          >
+        </div>
+
+        <div class="container">
+
+            @if ($listings)
+
+                <div class="headline">
+                    <h2>TOTAL LISTINGS: <span class="countgreen">{{ $listings->total() }}</span></h2>
+                    <h3>In this page: <span class="countgreen">{{ $listings->count() }}</span> Listings</h3>
+                </div>
+
+
+                <!-- <h3>TOTAL LISTINGS: <span class="countgreen">{{ $listings->total() }}</span> </h3>
+                          <br>
+                          <h4>In this page: <span class="countgreen">{{ $listings->count() }}</span> Listings</h4> -->
+
+                <div class="items">
+    
+                    @foreach ($listings as $listing)
+    
+                        <div class="card listing-card">
+    
+                            <img class="card-img-top"
+                                src="{{ $listing->fullpic ? URL::to($listing->fullpic->file) : 'http://placehold.it/400x400' }}"
+                                alt="Card image cap">
+    
+    
+                            <!-- <span class="forsale">{{ $listing->category->name }}</span> -->
+    
+                            <div class="card-body">
+    
+                                <a href="{{ route('listings.detail', $listing->id) }}" class="street-price">
+                                    <h4 class="street">{{ $listing->street }}</h4>
+                                    <h4 class="price">{{ $listing->price }}</h4>
+                                    <h5 class="city">
+                                        {{ $listing->city ? $listing->city->name : 'Listing has no city' }}</h5>
+                                </a>
+    
+                                <div class="listInfo">
+                                    <div class="left">
+                                        <ul class="entry">
+                                            <li>BEDS:</li>
+                                            <li class="number">{{ $listing->beds }}</li>
+                                        </ul>
+                                        <ul class="entry">
+                                            <li>BATHS:</li>
+                                            <li class="number">{{ $listing->baths }}</li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="right">
+                                        <ul class="entry">
+                                            <li>SQFT:</li>
+                                            <li class="number">{{ $listing->sqft }}</li>
+                                        </ul>
+    
+                                    </div>
+    
+                                </div>
+    
+    
+    
+                            </div>
+    
                         </div>
+    
+                    @endforeach
 
-                        <span class="forsale">{{$listing->category->name}}</span>
-
-                        <div class="card-body">
-
-                          <h4>{{$listing->street}}</h4>
-                          <h5>
-                            {{$listing->city ? $listing->city->name : 'Listing has no city'}},
-                            {{$listing->state ? $listing->state->name : 'Listing has no state'}}
-                          </h5>
-
-                          <div class="col-md-12">
-                            <span class="price">${{$listing->price}}</span>
-                          </div>
-
-                          <div class="col-md-12">
-
-                              <ul class="listInfo">
-                                <li>BEDS: <span class="listnumber">{{$listing->beds}}</span></li>
-                                <li>BATHS: <span class="listnumber">{{$listing->baths}}</span></li>
-                                <li>SQFT: <span class="listnumber">{{$listing->sqft}}</span></li>
-                              </ul>
-
-                          </div>
-                              
-                          <a href="{{route('listings.detail', $listing->id)}}" class="btn btn-green">Read More</a>
-
-                        </div>
-
-                  </div>
-
-                @endforeach
+                </div>
 
 
-                @endif
+            @endif
 
 
-            </div>
-            
+
+
             <div class="pagination">
 
-              {{ $listings->links() }}
+                {{ $listings->links() }}
 
             </div>
-            
-            
-
-				</div>
 
 
 
-			</div>
+        </div>
 
-	</div>
+
+
+    </div>
+
+    
 
 
 @endsection

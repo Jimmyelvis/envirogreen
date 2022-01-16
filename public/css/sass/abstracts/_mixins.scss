@@ -13,3 +13,72 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin topbtmpadding {
+  padding: 5rem 0;
+}
+
+@mixin topbtmpadding-small {
+  padding: 3rem 0;
+}
+
+@mixin margintop {
+  margin-top: 4rem;
+}
+
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint==bp-tiny {
+    @media only screen and (max-width: 25em) {
+      @content
+    }
+
+    ; //400px
+  }
+
+  @if $breakpoint==bp-smallest {
+    @media only screen and (max-width: 31.25em) {
+      @content
+    }
+
+    ; //500px
+  }
+
+  @if $breakpoint==bp-small {
+    @media only screen and (max-width: 37.5em) {
+      @content
+    }
+
+    ; //600px
+  }
+
+  @if $breakpoint==bp-medium {
+    @media only screen and (max-width: 50em) {
+      @content
+    }
+
+    ; //800px
+  }
+
+  @if $breakpoint==bp-large {
+    @media only screen and (max-width: 62.5em) {
+      @content
+    }
+
+    ; //1000px
+  }
+
+  @if $breakpoint==bp-largest {
+    @media only screen and (max-width: 75em) {
+      @content
+    }
+
+    ; //1200px
+  }
+
+  // @if $breakpoint == big-desktop {
+  //     @media only screen and (min-width: 112.5em) { @content };    //1800
+  // }
+
+
+}

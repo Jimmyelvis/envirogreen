@@ -4,85 +4,96 @@
 
 
 #team-listing {
-  padding: 50px 0 0 0;
-  
-  .row {
-    margin: 50px 0;
-  }
-  
-  .staff-member-entry {
-    height: auto;
-    margin-bottom: 70px;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.65);
-    flex: 0 0 45%;
-    max-width: 45%;
-    margin-right: 5%;
 
-    @media (max-width:990px) {
-      margin-bottom: 0;
-      flex: 0 0 80%;
-      max-width: 80%;
-      margin-right: 0;
-      margin: 20px auto;
-    }
-  }
-  
-  .user-pic {
-    width: 30%;
-    text-align: center;
-    position: relative;
-    padding-bottom: 30%;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: auto;
-    display: block;
-  }
-  
-  .user-info {
-    width: 100%;
-    text-align: center;
-    margin: 30px auto;
+  .container {
+    display: flex;
+    padding: 4rem 4rem;
+    padding: 4rem 4rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
-    @media (max-width:990px) {
-      margin: 20px auto;
+    .staff-member-entry {
+      height: 40rem;
+      margin-bottom: 7rem;
+      background-color: rgba(255, 255, 255, 0.65);
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      @include respond(bp-large) {
+        width: 45%;
+      }
+
+      @include respond(bp-small) {
+        width: 44rem;
+      }
+
+      .user-pic {
+        width: 17rem;
+        text-align: center;
+        position: relative;
+        padding-bottom: 17rem;
+        border-radius: 50%;
+        overflow: hidden;
+        display: block;
+
+        @include respond(bp-large) {
+          width: 16rem;
+          padding-bottom: 16rem;
+        }
+
+        @include respond(bp-medium) {
+          width: 15rem;
+          padding-bottom: 15rem;
+        }
+
+        .picmember {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          -o-object-fit: cover;
+          object-fit: cover;
+        }
+      }
+
+      .user-info {
+        width: 100%;
+        text-align: center;
+
+        h3 {
+          font-size: 2.5rem;
+
+          a {
+            color: $color-primary;
+          }
+
+          a:hover {
+            color: $color-secondary;
+            text-decoration: none;
+            transition: all 0.3s linear;
+          }
+        }
+
+        h4 {
+          font-family: $font-primary;
+          font-size: 1.7rem;
+        }
+  
+        p {
+          width: 80%;
+          margin: 2rem auto;
+          text-align: left;
+        }
+      }
+
     }
+
   }
-  
-  
-  .picmember {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    -o-object-fit: cover;
-    object-fit: cover;
-  }
-  
-  h3 {
-    font-size: 150%;
-    
-    a {
-      color: #1cc198;
-    }
-    
-    a:hover {
-      color: #6b7a9e;
-      text-decoration: none;
-      transition: all 0.3s linear;
-    }
-  }
-  
-  h4 {
-    font-size: 120%;
-    font-family: 'Clear Sans';
-  }
-   p {
-    font-size: 100%;
-    width: 80%;
-    margin: 20px auto;
-  }
+
+
+
 }
-
-

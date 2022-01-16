@@ -223,8 +223,9 @@ class ListingController extends Controller
       }
 
       return response()->json($result);
+      // return ($result);
   }
 
-
+ 
 
 }

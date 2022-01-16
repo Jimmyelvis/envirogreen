@@ -7,3 +7,11 @@ Homestead.json
 /config
 app/Providers
 /nothing
+/public/css/sass/base/_base.-older.scss
+/public/css/sass/pages/_index-bkp.scss
+/resources/views/front-end/listing.blade-V2.php
+/resources/views/front-end/multiresults.blade-v2.php
+/resources/views/front-end/background.blade.php
+/resources/views/layouts/home-app.blade - Copy.php
+/resources/views/layouts/home-app.blade-v2.php
+/app/Http/Controllers/ListingController-v2.php

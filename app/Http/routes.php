@@ -47,6 +47,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/search', 'ListingController@listingsresults');
 Route::get('/multisearch', 'ListingController@multiresults');
 Route::get('/autocomplete', array('as' =>'autocomplete', 'uses' => 'ListingController@autocomplete'));
+// Route::post('/autocomplete', 'ListingController@autocomplete')->name('ListingController.autocomplete');
 
 
 

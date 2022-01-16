@@ -3,44 +3,56 @@
 */
 
 
-#contact .header {
-  background-color: blue;
-  height: 240px;
-  margin-top: 0;
-  position: relative;
-}
+#contact {
+  margin-bottom: 10rem;
 
-#contact .form h4 {
-  color: #1cc198;
-  font-size: 250%;
-  text-align: center;
-  margin: 50px auto;
-}
+  .container {
 
-@media(max-width:767px) {
+    .form {
+      margin-top: 10rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
-  .header h2 {
-    font-size: 280%;
+      h4 {
+        margin: 0;
+        flex: 0 0 100%;
+        font-size: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      .form-group {
+        flex: 0 0 46%;
+
+        @include respond(bp-small) {
+          flex: 0 0 100%;
+        }
+
+        .control-label {
+          margin-left: 2px;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+
+        .form-control {
+          width: 100%;
+        }
+
+        .btn-green {}
+      }
+
+      .textarea {
+        flex: 0 0 100%;
+        height: auto;
+
+        .form-control {
+          height: auto;
+        }
+      }
+
+    }
+
   }
-
-  #contact .form h4 {
-    font-size: 200%;
-  }
-
-}
-
-@media(max-width:500px) {
-
-  .header h2 {
-    font-size: 200%;
-  }
-
-  #contact .form h4 {
-    font-size: 165%;
-  }
-
-  #contact .header {
-    height: 180px;
-  }
-
 }

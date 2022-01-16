@@ -15,3 +15,40 @@
   font-weight: normal;
   font-style: normal;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0.1rem;
+}
+
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+p {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

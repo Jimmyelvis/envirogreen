@@ -1,87 +1,274 @@
   .jumbotron {
-      background-image: url(../images/full-house-pic-4.jpg);
-      margin-top: -109px;
-      padding-top: 245px;
-      padding-bottom: 13%;
+    background-image: url(../images/home-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+  
+    @include respond(bp-large) {
+      padding-bottom: 3%;
       background-size: cover;
-      background-position-y: -30px;
-      background-repeat: no-repeat;
+      background-position-x: 50%;
+      background-color: rgba(255, 255, 255, 0);
+    }
 
-      @media (max-width:990px) {
-        padding-top: 210px;
-        padding-bottom: 3%;
-        background-size: cover;
-        background-position-x: 50%;
-        background-position-y: -30px;
-        background-color: rgba(255, 255, 255, 0);
-      }
 
-      @media (max-width:600px) {
-         margin-top: -80px;
-         padding-top: 138px;
-         padding-bottom: 0%;
-         height: 600px;
-         background-size: cover;
-      }
+    .overlay {
+      background-color: #0C0C0C;
+      opacity: 0.35;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+      top: 0;
+      left: 0;
 
-      h1, h3 {
-        text-shadow: 2px 2px 4px #726859;
+      @include respond (bp-medium) {
+        opacity: 0.55;
       }
-      
-      
-      h1 {
-        color: #ffffff;
-        font-size: 400%;
+    }
+
+    .container {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      width: 100%;
+      padding-top: 25rem;
+    }
+
+    h1,
+    h3 {
+      text-shadow: 2px 2px 4px #726859;
+    }
+
+
+    h1 {
+      color: #ffffff;
+      text-align: center;
+
+      @include respond (bp-large) {
         text-align: center;
+      }
 
-        @media (max-width:990px) {
-          font-size: 300%;
-          text-align: center;
-        }
+      @include respond (bp-smallest) {
+        font-size: 4rem;
+      }
 
-        @media (max-width:767px) {
-          font-size: 275%;
-        }
+    }
 
-        @media (max-width:600px) {
-          font-size: 220%;
-        }
+    h3 {
+      color: rgba(255, 255, 255, 1.00);
+      text-align: center;
+      font-family: $font-primary;
+      margin: 20px auto;
+      width: 60%;
 
-        @media (max-width:500px) {
-          font-size: 190%;
-        }
+      @include respond (bp-large) {
+        width: 80%;
+      }
+
+    }
+
+    .navbar {
+      @include respond (bp-small) {
+        height: 8rem;
+      }
+    }
+
+  }
+
+  .ui-helper-hidden-accessible {
+    display: none;
+  }
+
+
+  // FRONT SEARCH BAR //
+
+  #home-search {
+    position: relative;
+    margin-bottom: 30rem;
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.75);
+    padding: 3rem 5rem;
+    border-radius: 8px;
+    position: relative;
+    width: 60%;
+    margin-top: 14rem;
+    top: 0;
+
+    @include respond(bp-largest) {
+      width: 70%;
+    }
+
+
+    @include respond (bp-large) {
+      padding: 2rem 3rem;
+      width: 80%;
+    }
+
+    @include respond(bp-small) {
+      padding: 3rem 0rem;
+      width: 95%;
+    }
+
+     .btn-green {
+
+      @include respond (bp-large) {
+        padding: 1.2rem 1.6rem;
+      }
+
+      @include respond (bp-small) {
+        margin-top: 1rem;
+        width: 80%;
+      }
+     }
+
+  }
+
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(bp-small) {
+      flex-direction: column;
+    }
+
+    .form-wrapper {
+      background: rgba(255, 255, 255, .75);
+      border: 0;
+      font-size: 1.8rem;
+      line-height: 5rem;
+      height: 5rem;
+      width: 80%;
+      vertical-align: top;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      box-shadow: inset 0px 0px 18px 0px rgba(0, 0, 0, 0.22);
+      position: relative;
+      margin-right: 1.5rem;
+  
+   
+  
+      @include respond (bp-largest) {
+        width: 78%;
       }
   
-      h3 {
-        color: rgba(255, 255, 255, 1.00);
-        font-size: 150%;
-        text-align: center;
-        font-family: Lato;
-        margin: 20px auto;
-        width: 60%;
-
-        @media (max-width:990px) {
-          width: 80%;
+      @include respond (bp-large) {
+        line-height: 4.4rem;
+        height: 4.4rem;
+        width: 72%;
+      }
+  
+      @include respond (bp-medium) {
+        width: 78%;
+      }
+  
+      @include respond (bp-small) {
+        width: 90%;
+        margin-right: 0;
+      }
+  
+      input.search-query {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+        width: 90%;
+        color: #0cac8a;
+        font-weight: bold;
+        letter-spacing: 1px;
+        outline: none;
+        height: 62%;
+        font-size: 2rem;
+    
+        @include respond(bp-medium) {
+          width: 95%;
         }
 
-        @media (max-width:600px) {
-          font-size: 125%;
-        }
-
-        @media (max-width:500px) {
-           font-size: 115%;
+        @include respond(bp-small) {
+          width: 85%;
         }
       }
+    }
+    
+  }
 
-      .navbar {
-         @media(max-width:600px) {
-           height: 80px;
-         }
-      }
 
+
+  
+// JqueryUI Autocomplete
+
+
+  ul#ui-id-1 {
+    background-color: #fff;
+    width: 23.5%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.38);
+    padding: 1rem 0;
+    display: block;
+    z-index: 2000;
+    position: absolute;
+    float: left;
+    margin: 0;
+    list-style: none;
+    top: 100% !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+
+  li.ui-menu-item {
+    margin-bottom: 4px;
+    padding: 0 1.4rem;
+    color: $color-primary;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 200ms linear;
+  }
+
+  li.ui-menu-item:hover {
+    background-color: #0cac8a;
+    color: #fff;
+  }
+
+
+  /* do not group these rules*/
+
+  .search-query::-webkit-input-placeholder {
+    color: #87a3c5;
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 1.6rem;
+
+    @include respond (bp-medium) {
+      font-size: 1.2rem;
     }
 
-    .ui-helper-hidden-accessible {
-      display: none;
+    @include respond (bp-small) {
+      font-size: 1.4rem;
     }
+  }
 
+  FF 4-18 .search-field:-moz-placeholder {
+    color: #87a3c5;
+  }
+
+  FF 19+.search-field::-moz-placeholder {
+    color: #87a3c5;
+  }
+
+  IE 10+.search-field:-ms-input-placeholder {
+    color: #87a3c5;
+  }
